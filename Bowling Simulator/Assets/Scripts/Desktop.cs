@@ -13,4 +13,9 @@ public class Desktop : MonoBehaviour
     {
         
     }
+
+    public void GameButton_Click()
+    {
+        Debug.Log("Clicked");
+    }
 }
