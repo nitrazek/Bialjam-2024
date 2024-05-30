@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 462714472}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -111.98, y: 0.6, z: 45734.74}
+  m_LocalPosition: {x: -111.98, y: -0.3, z: 45734.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 488260399}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -108.1, y: 0.6, z: 45734.74}
+  m_LocalPosition: {x: -108.1, y: -0.3, z: 45734.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -609,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 621101522}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -111.21, y: 0.6, z: 45733.71}
+  m_LocalPosition: {x: -111.21, y: -0.3, z: 45733.71}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 801657741}
   - component: {fileID: 801657740}
   - component: {fileID: 801657739}
+  - component: {fileID: 801657744}
   m_Layer: 0
   m_Name: kregiel (3)
   m_TagString: Untagged
@@ -742,12 +743,25 @@ Transform:
   m_GameObject: {fileID: 801657738}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -108.68, y: 0.6, z: 45733.58}
+  m_LocalPosition: {x: -108.68, y: -0.3, z: 45733.58}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801657744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801657738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b6e1ab4ee33ff45bb3ce58e0010893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockOverThreshold: 10
 --- !u!1 &853281062
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +889,7 @@ Transform:
   m_GameObject: {fileID: 853281062}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -109.99, y: 0.6, z: 45733.63}
+  m_LocalPosition: {x: -109.99, y: -0.3, z: 45733.63}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1114,7 +1128,7 @@ Transform:
   m_GameObject: {fileID: 1059341730}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -109.26, y: 0.6, z: 45734.74}
+  m_LocalPosition: {x: -109.26, y: -0.3, z: 45734.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1238,6 +1252,7 @@ GameObject:
   - component: {fileID: 1619291754}
   - component: {fileID: 1619291753}
   - component: {fileID: 1619291752}
+  - component: {fileID: 1619291757}
   m_Layer: 0
   m_Name: kregiel (2)
   m_TagString: Untagged
@@ -1352,12 +1367,25 @@ Transform:
   m_GameObject: {fileID: 1619291751}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -110.67, y: 0.6, z: 45732.71}
+  m_LocalPosition: {x: -110.67, y: -0.3, z: 45732.71}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619291757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619291751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b6e1ab4ee33ff45bb3ce58e0010893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockOverThreshold: 10
 --- !u!1 &1862318196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1399,7 @@ GameObject:
   - component: {fileID: 1862318199}
   - component: {fileID: 1862318198}
   - component: {fileID: 1862318197}
+  - component: {fileID: 1862318202}
   m_Layer: 0
   m_Name: kregiel (1)
   m_TagString: Untagged
@@ -1485,12 +1514,25 @@ Transform:
   m_GameObject: {fileID: 1862318196}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -109.38, y: 0.6, z: 45732.74}
+  m_LocalPosition: {x: -109.38, y: -0.3, z: 45732.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1862318202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862318196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b6e1ab4ee33ff45bb3ce58e0010893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockOverThreshold: 10
 --- !u!1 &1985749574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1660,7 @@ Transform:
   m_GameObject: {fileID: 1985749574}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -110.65, y: 0.6, z: 45734.74}
+  m_LocalPosition: {x: -110.65, y: -0.3, z: 45734.74}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1637,6 +1679,7 @@ GameObject:
   - component: {fileID: 6076015308344223826}
   - component: {fileID: 7000155508587730800}
   - component: {fileID: 7000155508587730799}
+  - component: {fileID: 7000155508587730801}
   m_Layer: 0
   m_Name: kregiel
   m_TagString: Untagged
@@ -1774,7 +1817,7 @@ Transform:
   m_GameObject: {fileID: 4778668331411991828}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -110.02, y: 0.6, z: 45731.89}
+  m_LocalPosition: {x: -110.02, y: -0.3, z: 45731.89}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1828,6 +1871,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7000155508587730801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778668331411991828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b6e1ab4ee33ff45bb3ce58e0010893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockOverThreshold: 10
 --- !u!4 &8790539010013032795
 Transform:
   m_ObjectHideFlags: 0
