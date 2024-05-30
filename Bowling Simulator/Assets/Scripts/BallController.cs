@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private float verticalSpeed = 8f;
+    private float verticalSpeed = 6f;
     
     private float horizontal;
     private float horizontalSpeed = 5f;
@@ -18,7 +18,6 @@ public class Ball : MonoBehaviour
 
     [SerializeField] private Rigidbody rb;
 
-    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
