@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     private float horizontal;
     private float horizontalSpeed = 10f;
 
-    private float width = 8f;
+    private float width = 5f;
     private float widthPosition = 0f;
     private float widthVelocity = 0.1f;
     private float widthDirection = 1f;
