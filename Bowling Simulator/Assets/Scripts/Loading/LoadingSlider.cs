@@ -5,45 +5,29 @@ using UnityEngine.UI;
 
 public class LoadingSlider : MonoBehaviour
 {
-    public Slider loadingSlider;
-    public float loadDuration = 1.0f;
-    public int pausePoints = 3;
-    public float pauseDuration = 0.2f;
+    public GameObject parentObject;
+    private float[] intervals = new float[] { 0.2f, 0.3f, 0.4f, 0.7f, 0.4f, 0.2f, 0.2f, 0.1f, 0.1f, 0.1f };
+    private float transitionInterval = 0.3f;
+
     void Start()
     {
-        StartCoroutine(SimulateLoading());
+        if (parentObject.transform.childCount != intervals.Length)
+        {
+            Debug.LogError("Liczba dzieci w parentObject musi byæ równa d³ugoœci tablicy intervals.");
+            return;
+        }
+
+        StartCoroutine(ShowProgressQubes());
     }
 
-    private IEnumerator SimulateLoading()
+    IEnumerator ShowProgressQubes()
     {
-        float elapsedTime = 0f;
-        float stepDuration = loadDuration / (pausePoints + 1);
-        float[] pausePositions = new float[pausePoints];
-
-        for (int i = 0; i < pausePoints; i++)
+        for (int i = 0; i < parentObject.transform.childCount; i++)
         {
-            pausePositions[i] = Random.Range(stepDuration * i, stepDuration * (i + 1));
+            yield return new WaitForSeconds(intervals[i]);
+            parentObject.transform.GetChild(i).gameObject.SetActive(true);
         }
-
-        int currentPauseIndex = 0;
-
-        while (elapsedTime < loadDuration)
-        {
-            if (currentPauseIndex < pausePoints && elapsedTime >= pausePositions[currentPauseIndex])
-            {
-                yield return new WaitForSeconds(pauseDuration);
-                currentPauseIndex++;
-            }
-            else
-            {
-                elapsedTime += Time.deltaTime;
-                loadingSlider.value = elapsedTime / loadDuration;
-            }
-            yield return null;
-        }
-
-        loadingSlider.value = 1f;
-        yield return new WaitForSeconds(pauseDuration);
+        yield return new WaitForSeconds(transitionInterval);
         SceneManager.LoadScene("DesktopScene");
     }
 }
