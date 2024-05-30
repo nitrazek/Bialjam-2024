@@ -5,6 +5,8 @@ using UnityEngine;
 public class BowlingMinigameController : MonoBehaviour
 {
     private short[][] rounds = new short[10][];
+    private short currentRound = 0;
+    private short currentRoundHalf = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +19,9 @@ public class BowlingMinigameController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPinKnockedOver()
     {
-        
+        rounds[currentRound][currentRoundHalf]++;
+        Debug.Log("Round " + currentRound + "/" +  currentRoundHalf + ": " + rounds[currentRound][currentRoundHalf]);
     }
 }

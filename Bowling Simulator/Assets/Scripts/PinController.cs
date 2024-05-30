@@ -7,6 +7,7 @@ public class PinController : MonoBehaviour
     private bool isKnockedOver = false;
 
     [SerializeField] private float knockOverThreshold = 10f;
+    [SerializeField] private BowlingMinigameController bowlingMinigameController;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class PinController : MonoBehaviour
         if (!isKnockedOver && angle > knockOverThreshold)
         {
             isKnockedOver = true;
-            Debug.Log(gameObject.name + " is knocked over!");
+            bowlingMinigameController.OnPinKnockedOver();
         }
     }
 }
