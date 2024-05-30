@@ -5,21 +5,14 @@ using UnityEngine.EventSystems;
 
 public class MoveButton : MonoBehaviour
 {
-    public bool IsDragging { get; private set; }
     public Canvas canvas;
-
-    public void Button_Drag_Start()
-    {
-        IsDragging = true;
-    }
-
-    public void Button_Drag_End()
-    {
-        IsDragging = false;
-    }
+    protected bool IsDragging;
 
     public void Button_Drag(BaseEventData eventData)
     {
+        if(!IsDragging) IsDragging = true;
+        transform.SetAsLastSibling();
+
         PointerEventData pointerEventData = (PointerEventData)eventData;
 
         Vector2 position;
