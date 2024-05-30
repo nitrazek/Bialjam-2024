@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     private Vector3 checkpoint;
+    private Quaternion initialRotation;
 
     private float verticalSpeed = 45f;
    
@@ -23,6 +24,7 @@ public class BallController : MonoBehaviour
     void Start()
     {
         checkpoint = transform.position;
+        initialRotation = transform.rotation;
         Reset();
     }
 
@@ -55,7 +57,7 @@ public class BallController : MonoBehaviour
     public void Reset()
     {
         transform.position = checkpoint;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = initialRotation;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         isMoving = false;

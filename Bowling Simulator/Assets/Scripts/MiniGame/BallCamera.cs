@@ -15,7 +15,7 @@ public class BallCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 targetPosition = target.position + offset;
-        transform.position = targetPosition;
+        //transform.position = target.position + offset;
+        transform.position = new Vector3(transform.position.x, transform.position.y, target.position.z + offset.z);
     }
 }
