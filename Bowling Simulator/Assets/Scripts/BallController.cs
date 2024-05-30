@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private float horizontalSpeed = 5f;
     private float verticalSpeed = 8f;
+    
     private float horizontal;
+    private float horizontalSpeed = 5f;
+
+    private float width = 8f;
+    private float widthPosition = 0f;
+    private float widthVelocity = 0.1f;
+    private float widthDirection = 1f;
+    
     private bool isMoving = false;
 
     [SerializeField] private Rigidbody rb;
@@ -27,7 +34,11 @@ public class Ball : MonoBehaviour
     {
         if (!isMoving)
         {
-            rb.position = new Vector3(rb.position.x + horizontal * 0.1f, rb.position.y, rb.position.z);
+            if (widthPosition >= width / 2) widthDirection = -1f;
+            else if (widthPosition <= (width / 2) * -1) widthDirection = 1f;
+            
+            rb.position = new Vector3(rb.position.x + (widthDirection * widthVelocity), rb.position.y, rb.position.z);
+            widthPosition += widthDirection * widthVelocity;
         }
         else
         {
