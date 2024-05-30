@@ -47,8 +47,8 @@ public class BowlingMinigameController : MonoBehaviour
         short totalScore = 0;
         for(int i=0; i<=currentRound; i++)
         {
-            totalScore += rounds[currentRound][0];
-            totalScore += rounds[currentRound][1];
+            totalScore += rounds[i][0];
+            totalScore += rounds[i][1];
             if (IsStrike(i))
             {
                 totalScore += GetStrikeBonus(i);
