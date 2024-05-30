@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private float verticalSpeed = 6f;
-    
+    private float verticalSpeed = 50f;
+   
     private float horizontal;
     private float horizontalSpeed = 5f;
 
@@ -21,10 +21,9 @@ public class Ball : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !isMoving)
         {
             isMoving = true;
-            rb.velocity = Vector3.zero;
             rb.AddForce(new Vector3(0, 0, verticalSpeed), ForceMode.VelocityChange);
         }
     }
