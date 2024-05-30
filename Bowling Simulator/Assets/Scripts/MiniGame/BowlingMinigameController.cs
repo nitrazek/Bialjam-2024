@@ -5,7 +5,6 @@ using UnityEngine;
 public class BowlingMinigameController : MonoBehaviour
 {
     private short[][] rounds = new short[10][];
-    private short[] multipliers = new short[10];
     private short totalScore = 0;
     private short currentRound = 0;
     private short currentRoundHalf = 0;
@@ -52,13 +51,13 @@ public class BowlingMinigameController : MonoBehaviour
             if (IsStrike(i))
             {
                 totalScore += GetStrikeBonus(i);
-                continue;
             }
-            if (IsSpare(i))
+            else if (IsSpare(i))
             {
                 totalScore += GetSpareBonus(i);
-                continue;
             }
+
+            Debug.Log("Total score: " + totalScore);
         }
         return totalScore;
     }
@@ -71,7 +70,6 @@ public class BowlingMinigameController : MonoBehaviour
             rounds[i] = new short[2];
             rounds[i][0] = 0;
             rounds[i][1] = 0;
-            multipliers[i] = 1;
         }
     }
 
@@ -94,6 +92,6 @@ public class BowlingMinigameController : MonoBehaviour
             currentRoundHalf = 1;
         }
 
-        Debug.Log("Total score: " + totalScore);
+        //Debug.Log("Total score: " + totalScore + ", Round: " + currentRound);
     }
 }
