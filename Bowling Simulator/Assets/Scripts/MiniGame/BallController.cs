@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class BallController : MonoBehaviour
 {
+    private Vector3 checkpoint;
+
     private float verticalSpeed = 45f;
    
     private float horizontal;
@@ -17,6 +19,12 @@ public class Ball : MonoBehaviour
     private bool isMoving = false;
 
     [SerializeField] private Rigidbody rb;
+
+    void Start()
+    {
+        checkpoint = transform.position;
+        Reset();
+    }
 
     void Update()
     {
@@ -42,5 +50,15 @@ public class Ball : MonoBehaviour
         {
             rb.AddForce(new Vector3(horizontal * horizontalSpeed, 0, 0));
         }
+    }
+
+    public void Reset()
+    {
+        transform.position = checkpoint;
+        transform.rotation = Quaternion.identity;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        isMoving = false;
+        widthPosition = 0f;
     }
 }
