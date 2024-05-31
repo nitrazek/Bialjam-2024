@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTutorialShown: 0
   ball: {fileID: 8790539010013032798}
-  pins: {fileID: 1380240051}
+  tutorialCanvas: {fileID: 1400113272}
 --- !u!4 &1006612369
 Transform:
   m_ObjectHideFlags: 0
