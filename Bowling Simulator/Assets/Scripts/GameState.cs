@@ -22,4 +22,5 @@ public enum StoryStages
     Round1,
     Round2,
     DesktopAnomaly,
+    Round3,
 }

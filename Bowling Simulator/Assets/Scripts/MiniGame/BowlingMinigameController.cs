@@ -5,17 +5,12 @@ using UnityEngine;
 
 public class BowlingMinigameController : MonoBehaviour
 {
-    private short[][] rounds = new short[10][];
-    private short totalScore = 0;
-    private short currentRound = 0;
-    private short currentRoundHalf = 0;
-
     [SerializeField] private TextMeshProUGUI scoreboardText;
     [SerializeField] private PinResetter pins;
 
     private bool IsStrike(int roundId)
     {
-        return rounds[roundId][0] == 10;
+        return BowlingState.rounds[roundId][0] == 10;
     }
 
     private short GetStrikeBonus(int roundId)
@@ -23,15 +18,15 @@ public class BowlingMinigameController : MonoBehaviour
         short bonus = 0;
         for(int i=roundId+1; i<=Mathf.Min(roundId+2, 9); i++)
         {
-            bonus += rounds[i][0];
-            bonus += rounds[i][1];
+            bonus += BowlingState.rounds[i][0];
+            bonus += BowlingState.rounds[i][1];
         }
         return bonus;
     }
 
     private bool IsSpare(int roundId)
     {
-        return rounds[roundId][0] + rounds[roundId][1] == 10;
+        return BowlingState.rounds[roundId][0] + BowlingState.rounds[roundId][1] == 10;
     }
 
     private short GetSpareBonus(int roundId)
@@ -39,8 +34,8 @@ public class BowlingMinigameController : MonoBehaviour
         short bonus = 0;
         for(int i=roundId+1; i<=Mathf.Min(roundId+1, 9); i++)
         {
-            bonus += rounds[i][0];
-            bonus += rounds[i][1];
+            bonus += BowlingState.rounds[i][0];
+            bonus += BowlingState.rounds[i][1];
         }
         return bonus;
     }
@@ -48,10 +43,10 @@ public class BowlingMinigameController : MonoBehaviour
     private short GetTotalScore()
     {
         short totalScore = 0;
-        for(int i=0; i<=currentRound; i++)
+        for(int i=0; i<=BowlingState.currentRound; i++)
         {
-            totalScore += rounds[i][0];
-            totalScore += rounds[i][1];
+            totalScore += BowlingState.rounds[i][0];
+            totalScore += BowlingState.rounds[i][1];
             if (IsStrike(i))
             {
                 totalScore += GetStrikeBonus(i);
@@ -66,49 +61,43 @@ public class BowlingMinigameController : MonoBehaviour
 
     private void UpdateScoreboard()
     {
-        scoreboardText.text = "Runda: " + (currentRound+1).ToString() + ", Rzut: " + (currentRoundHalf+1).ToString() +
-            "\n| " + rounds[currentRound][0] + " | " + rounds[currentRound][1] + " |" +
-            "\nWynik: " + totalScore;
+        scoreboardText.text = "Runda: " + (BowlingState.currentRound+1).ToString() + ", Rzut: " + (BowlingState.currentRoundHalf+1).ToString() +
+            "\n| " + BowlingState.rounds[BowlingState.currentRound][0] + " | " + BowlingState.rounds[BowlingState.currentRound][1] + " |" +
+            "\nWynik: " + BowlingState.totalScore;
     }
 
     void Start()
     {
         GameState.NextStage();
-        for (int i=0; i<10; i++)
-        {
-            rounds[i] = new short[2];
-            rounds[i][0] = 0;
-            rounds[i][1] = 0;
-        }
         UpdateScoreboard();
     }
 
     public void OnPinKnockedOver()
     {
-        rounds[currentRound][currentRoundHalf]++;
+        BowlingState.rounds[BowlingState.currentRound][BowlingState.currentRoundHalf]++;
     }
 
     public void OnThrowEnd()
     {
-        totalScore = GetTotalScore();
+        BowlingState.totalScore = GetTotalScore();
 
-        if(currentRoundHalf == 1 || IsStrike(currentRound))
+        if(BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
         {
-            currentRound++;
-            currentRoundHalf = 0;
+            BowlingState.currentRound++;
+            BowlingState.currentRoundHalf = 0;
             GameState.NextStage();
         }
         else
         {
-            currentRoundHalf = 1;
+            BowlingState.currentRoundHalf = 1;
         }
 
-        pins.Reset(currentRoundHalf);
+        pins.Reset(BowlingState.currentRoundHalf);
         UpdateScoreboard();
     }
 
     public short GetCurrentRoundHalf()
     {
-        return currentRoundHalf;
+        return BowlingState.currentRoundHalf;
     }
 }
