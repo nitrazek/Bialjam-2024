@@ -3789,6 +3789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b9957e4cb1df24f80bb7a9f46b6868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 1816567355}
+  camera: {fileID: 866591913}
+  crash_sound: {fileID: 8300000, guid: f2558fb31bf353f4698d0714347ecad4, type: 3}
 --- !u!4 &1827983001
 Transform:
   m_ObjectHideFlags: 0

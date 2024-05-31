@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Story : MonoBehaviour
 {
+    public GameObject icons;
     public Button gameButton;
     public Image cmdWindow;
     public Image chatWindow;
@@ -15,6 +16,7 @@ public class Story : MonoBehaviour
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
     public float cmdShowDuration = 0.1f;
+    public Vector2[] shiftedIconPositions = new Vector2[] {  };
     public AudioClip windowOpenClip;
     public AudioClip windowCloseClip;
     public AudioClip messageClip;
@@ -38,7 +40,9 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayBegginingStory()
     {
-        yield return new WaitForSeconds(7f);
+        gameButton.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(4f);
         GameState.NextStage();
         windowOpenSound.Play();
         chatWindow.gameObject.SetActive(true);
@@ -58,6 +62,8 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayFirstAnomaly()
     {
+        ChangePositionOfIcons();
+
         yield return new WaitForSeconds(1f);
         cmdWindow.gameObject.SetActive(true);
         yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.02f));
@@ -90,6 +96,31 @@ public class Story : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
+    }
+
+    private void ChangePositionOfIcons()
+    {
+        Vector2[] positions = new Vector2[]
+        {
+            new (-750, -300),
+            new (-500, -300),
+            new (-250, -300),
+            new (0, -300),
+            new (250, -300),
+            new (500, -300),
+            new (750, -300)
+        };
+
+        for (int i = 0; i < icons.transform.childCount; i++)
+        {
+            if (i < positions.Length)
+            {
+                GameObject icon = icons.transform.GetChild(i).gameObject;
+                icon.transform.localPosition = positions[i];
+            }
+            else
+                Debug.LogWarning("Wiêcej ikon ni¿ pozycji w tablicy");
+        }
     }
 
     private IEnumerator FadeImage(Image image, float startAlpha, float endAlpha, float duration)
