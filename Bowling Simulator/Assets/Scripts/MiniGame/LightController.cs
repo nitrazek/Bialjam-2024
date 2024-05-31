@@ -13,7 +13,7 @@ public class LightController : MonoBehaviour
     private StoryStages currentStage;
     private int step = 0;
 
-    [SerializeField] private Light light;
+    [SerializeField] private Light directionLight;
 
     void Update()
     {
@@ -22,8 +22,8 @@ public class LightController : MonoBehaviour
             currentStage = GameState.StoryStage;
             step++;
             float t = (float)step / 10;
-            light.intensity = Mathf.Lerp(startIntensity, endIntensity, t);
-            light.color = Color.Lerp(startColor, endColor, t);
+            directionLight.intensity = Mathf.Lerp(startIntensity, endIntensity, t);
+            directionLight.color = Color.Lerp(startColor, endColor, t);
         }
     }
 }
