@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Story : MonoBehaviour
 {
     public Button gameButton;
+    public Image cmdWindow;
     public Image chatWindow;
     public Image chatBubble_1;
     public Image chatBubble_2;
@@ -13,6 +14,7 @@ public class Story : MonoBehaviour
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
+    public float cmdShowDuration = 0.1f;
     public AudioClip windowOpenClip;
     public AudioClip windowCloseClip;
     public AudioClip messageClip;
@@ -56,7 +58,12 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayFirstAnomaly()
     {
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        cmdWindow.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.02f));
+        yield return new WaitForSeconds(cmdShowDuration);
+        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.02f));
+        cmdWindow.gameObject.SetActive(false);
     }
 
     public void DownloadGame()
@@ -67,7 +74,6 @@ public class Story : MonoBehaviour
     private IEnumerator SimulateDownloading()
     {
         Image downloadImage = chatBubble_3.transform.GetChild(1).GetComponent<Image>();
-        Debug.Log(downloadImage);
         downloadImage.gameObject.SetActive(true);
         for (int i = 0; i < 2; i++)
         {

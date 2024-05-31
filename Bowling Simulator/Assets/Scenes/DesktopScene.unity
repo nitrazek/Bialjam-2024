@@ -1110,6 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameButton: {fileID: 2147395212}
+  cmdWindow: {fileID: 2124782915}
   chatWindow: {fileID: 1163089570}
   chatBubble_1: {fileID: 2021234239}
   chatBubble_2: {fileID: 423648718}
@@ -1117,6 +1118,7 @@ MonoBehaviour:
   pulseScaleMultiplier: 1.1
   pulseAnimationDuration: 0.5
   downloadAnimationDuration: 0.5
+  cmdShowDuration: 0.1
   windowOpenClip: {fileID: 8300000, guid: d2cf709355537164f9b6dfd1e8444893, type: 3}
   windowCloseClip: {fileID: 8300000, guid: d2cf709355537164f9b6dfd1e8444893, type: 3}
   messageClip: {fileID: 8300000, guid: e49d904bca3e17045aa4dfdbad4c1f1b, type: 3}
