@@ -8,8 +8,15 @@ public class BowlingButton : MoveButton
     public void Button_Click()
     {
         if(IsDragging)
+        {
             IsDragging = false;
-        else
+            return;
+        }
+        
+        if(GameState.StoryStage == StoryStages.DesktopInstalledGame)
+        {
             SceneManager.LoadScene("BowlingScene");
+            return;
+        }
     }
 }
