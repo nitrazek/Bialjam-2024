@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     public static StoryStages StoryStage = StoryStages.DesktopWelcome;
+    public static bool UiBlocked = false;
 
     public static StoryStages NextStage()
     {

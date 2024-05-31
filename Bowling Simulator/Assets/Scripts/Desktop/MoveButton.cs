@@ -10,7 +10,8 @@ public class MoveButton : MonoBehaviour
 
     public void Button_Drag(BaseEventData eventData)
     {
-        if(!IsDragging) IsDragging = true;
+        if (GameState.UiBlocked) return;
+        if (!IsDragging) IsDragging = true;
         transform.SetAsLastSibling();
 
         PointerEventData pointerEventData = (PointerEventData)eventData;

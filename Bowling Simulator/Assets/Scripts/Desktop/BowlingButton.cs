@@ -7,14 +7,17 @@ public class BowlingButton : MoveButton
 {
     public void Button_Click()
     {
-        if(IsDragging)
+        if (GameState.UiBlocked) return;
+        if (IsDragging)
         {
             IsDragging = false;
             return;
         }
         
         if(GameState.StoryStage == StoryStages.DesktopInstalledGame
-           || GameState.StoryStage == StoryStages.DesktopAnomaly)
+           || GameState.StoryStage == StoryStages.DesktopAnomaly
+           || GameState.StoryStage == StoryStages.RightsAnomaly
+           || GameState.StoryStage == StoryStages.RightsAnomalyForced)
         {
             SceneManager.LoadScene("BowlingScene");
             GameState.NextStage();

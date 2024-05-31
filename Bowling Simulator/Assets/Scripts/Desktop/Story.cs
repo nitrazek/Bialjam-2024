@@ -23,7 +23,6 @@ public class Story : MonoBehaviour
     private AudioSource windowOpenSound;
     private AudioSource windowCloseSound;
     private AudioSource messageSound;
-    private bool uiBlocked = false;
 
     void Start()
     {
@@ -45,7 +44,7 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayBegginingStory()
     {
-        uiBlocked = true;
+        GameState.UiBlocked = true;
         gameButton.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(4f);
@@ -80,6 +79,7 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayRightsAnomaly()
     {
+        GameState.UiBlocked = true;
         yield return new WaitForSeconds(1f);
         rightsWindow.gameObject.SetActive(true);
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
@@ -87,14 +87,16 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayRightsAnomalyForced()
     {
+        GameState.UiBlocked = true;
         yield return new WaitForSeconds(1f);
-        rightsWindow.gameObject.SetActive(false);
+        rightsWindow.gameObject.SetActive(true);
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
     }
 
     public void RightsWindow_YesButton()
     {
-        
+        rightsWindow.gameObject.SetActive(false);
+        GameState.UiBlocked = false;
     }
 
     public void RightsWindow_NoButton()
@@ -102,6 +104,7 @@ public class Story : MonoBehaviour
         if (GameState.StoryStage == StoryStages.RightsAnomalyForced) return;
 
         rightsWindow.gameObject.SetActive(false);
+        GameState.UiBlocked = false;
     } 
 
     public void DownloadGame()
@@ -129,10 +132,10 @@ public class Story : MonoBehaviour
         chatBubble_1.gameObject.SetActive(false);
         chatWindow.gameObject.SetActive(false);
         downloadLinkButton.enabled = true;
+        GameState.UiBlocked = false;
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
-
     }
 
     private void ChangePositionOfIcons()

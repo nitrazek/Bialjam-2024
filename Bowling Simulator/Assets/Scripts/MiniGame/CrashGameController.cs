@@ -12,7 +12,10 @@ public class CrashGameController : MonoBehaviour
 
     void Update()
     {
-        if(GameState.StoryStage == StoryStages.DesktopAnomaly && !isCoroutineRunning)
+        if(!isCoroutineRunning &&
+          (GameState.StoryStage == StoryStages.DesktopAnomaly
+          || GameState.StoryStage == StoryStages.RightsAnomaly
+          || GameState.StoryStage == StoryStages.RightsAnomalyForced))
         {
             StartCoroutine(PlayCrashSoundAndLoadScene());
         }
