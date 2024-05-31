@@ -12,17 +12,18 @@ public class Story : MonoBehaviour
     public Image chatBubble_1;
     public Image chatBubble_2;
     public Image chatBubble_3;
+    public Image rightsWindow;
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
     public float cmdShowDuration = 1.5f;
-    public Vector2[] shiftedIconPositions = new Vector2[] {  };
     public AudioClip windowOpenClip;
     public AudioClip windowCloseClip;
     public AudioClip messageClip;
     private AudioSource windowOpenSound;
     private AudioSource windowCloseSound;
     private AudioSource messageSound;
+    private bool uiBlocked = false;
 
     void Start()
     {
@@ -36,10 +37,15 @@ public class Story : MonoBehaviour
             StartCoroutine(PlayBegginingStory());
         else if(GameState.StoryStage == StoryStages.DesktopAnomaly)
             StartCoroutine(PlayFirstAnomaly());
+        else if(GameState.StoryStage == StoryStages.RightsAnomaly)
+            StartCoroutine(PlayRightsAnomaly());
+        else if(GameState.StoryStage == StoryStages.RightsAnomalyForced)
+            StartCoroutine(PlayRightsAnomalyForced());
     }
 
     private IEnumerator PlayBegginingStory()
     {
+        uiBlocked = true;
         gameButton.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(4f);
@@ -51,7 +57,7 @@ public class Story : MonoBehaviour
         messageSound.Play();
         chatBubble_1.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3f);
         messageSound.Play();
         chatBubble_2.gameObject.SetActive(true);
 
@@ -66,11 +72,37 @@ public class Story : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         cmdWindow.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.02f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.1f));
         yield return new WaitForSeconds(cmdShowDuration);
-        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.02f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.1f));
         cmdWindow.gameObject.SetActive(false);
     }
+
+    private IEnumerator PlayRightsAnomaly()
+    {
+        yield return new WaitForSeconds(1f);
+        rightsWindow.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
+    }
+
+    private IEnumerator PlayRightsAnomalyForced()
+    {
+        yield return new WaitForSeconds(1f);
+        rightsWindow.gameObject.SetActive(false);
+        yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
+    }
+
+    public void RightsWindow_YesButton()
+    {
+        
+    }
+
+    public void RightsWindow_NoButton()
+    {
+        if (GameState.StoryStage == StoryStages.RightsAnomalyForced) return;
+
+        rightsWindow.gameObject.SetActive(false);
+    } 
 
     public void DownloadGame()
     {
@@ -79,10 +111,10 @@ public class Story : MonoBehaviour
 
     private IEnumerator SimulateDownloading()
     {
-        Button downloadLinkButton = chatBubble_3.transform.GetChild(0).GetComponent<Button>();
+        Button downloadLinkButton = chatBubble_3.transform.GetChild(1).GetComponent<Button>();
         downloadLinkButton.enabled = false;
 
-        Image downloadImage = chatBubble_3.transform.GetChild(1).GetComponent<Image>();
+        Image downloadImage = chatBubble_3.transform.GetChild(2).GetComponent<Image>();
         downloadImage.gameObject.SetActive(true);
         for (int i = 0; i < 2; i++)
         {
@@ -96,7 +128,7 @@ public class Story : MonoBehaviour
         chatBubble_2.gameObject.SetActive(false);
         chatBubble_1.gameObject.SetActive(false);
         chatWindow.gameObject.SetActive(false);
-        downloadLinkButton.enabled = false;
+        downloadLinkButton.enabled = true;
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
