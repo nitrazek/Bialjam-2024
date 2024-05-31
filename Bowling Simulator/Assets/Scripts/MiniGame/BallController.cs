@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
     private float verticalSpeed = 45f;
    
     private float horizontal;
-    private float horizontalSpeed = 10f;
+    private float horizontalSpeed = 5f;
 
     private float width = 5f;
     private float widthPosition = 0f;
@@ -53,7 +53,7 @@ public class BallController : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector3(horizontal * horizontalSpeed, 0, 0));
+            rb.AddForce(new Vector3(horizontal * horizontalSpeed, 0, 0), ForceMode.Acceleration);
         }
     }
 
