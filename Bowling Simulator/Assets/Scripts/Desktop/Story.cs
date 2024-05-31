@@ -66,13 +66,14 @@ public class Story : MonoBehaviour
             yield return StartCoroutine(FadeImage(downloadImage, 0f, 1f, pulseAnimationDuration));
             yield return StartCoroutine(FadeImage(downloadImage, 1f, 0f, pulseAnimationDuration));
         }
+        yield return StartCoroutine(FadeImage(downloadImage, 0f, 1f, pulseAnimationDuration));
         yield return new WaitForSeconds(1f);
         downloadImage.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.2f);
         chatBubble_3.gameObject.SetActive(false);
         chatBubble_2.gameObject.SetActive(false);
         chatBubble_1.gameObject.SetActive(false);
         chatWindow.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
     }

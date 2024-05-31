@@ -16,6 +16,7 @@ public class BowlingButton : MoveButton
         if(GameState.StoryStage == StoryStages.DesktopInstalledGame)
         {
             SceneManager.LoadScene("BowlingScene");
+            GameState.NextStage();
             return;
         }
     }

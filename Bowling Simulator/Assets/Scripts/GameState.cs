@@ -17,5 +17,6 @@ public enum StoryStages
 {
     DesktopWelcome,
     ChatWindowOpen,
-    DesktopInstalledGame
+    DesktopInstalledGame,
+    GameStarted
 }
