@@ -74,10 +74,12 @@ public class Story : MonoBehaviour
         ChangePositionOfIcons();
 
         yield return new WaitForSeconds(1f);
+        GameState.UiBlocked = true;
         cmdWindow.gameObject.SetActive(true);
         yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.1f));
         yield return new WaitForSeconds(cmdShowDuration);
         yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.1f));
+        GameState.UiBlocked = false;
         cmdWindow.gameObject.SetActive(false);
     }
 
