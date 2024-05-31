@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallCamera : MonoBehaviour
 {
     private Vector3 offset;
+    private bool isFrozen = false;
 
     [SerializeField] private Transform target;
 
@@ -15,7 +16,16 @@ public class BallCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        //transform.position = target.position + offset;
-        transform.position = new Vector3(transform.position.x, transform.position.y, target.position.z + offset.z);
+        if (!isFrozen) transform.position = new Vector3(transform.position.x, transform.position.y, target.position.z + offset.z);
+    }
+
+    public void OnFreeze()
+    {
+        isFrozen = true;
+    }
+
+    public void OnStopFreeze()
+    {
+        isFrozen = false;
     }
 }

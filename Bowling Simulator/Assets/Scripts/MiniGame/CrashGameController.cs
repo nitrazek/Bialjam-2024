@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CrashGameController : MonoBehaviour
 {
-    public AudioSource audio;
-    public Camera camera;
+    public AudioSource audioSource;
     public AudioClip crash_sound;
     private bool isCoroutineRunning = false;
+
+    [SerializeField] private BallCamera ballCamera;
 
     void Update()
     {
@@ -24,15 +25,15 @@ public class CrashGameController : MonoBehaviour
     IEnumerator PlayCrashSoundAndLoadScene()
     {
         isCoroutineRunning = true;
-        audio.Stop();
-        audio.PlayOneShot(crash_sound);
+        audioSource.Stop();
+        audioSource.PlayOneShot(crash_sound);
 
-        camera.enabled = false;
+        ballCamera.OnFreeze();
 
         // Wait until the crash sound finishes playing
-        yield return new WaitWhile(() => audio.isPlaying);
+        yield return new WaitWhile(() => audioSource.isPlaying);
 
-        camera.enabled = true;
+        ballCamera.OnStopFreeze();
 
         // Load the new scene
         SceneManager.LoadScene("DesktopScene");

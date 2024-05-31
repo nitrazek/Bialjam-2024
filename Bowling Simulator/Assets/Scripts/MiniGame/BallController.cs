@@ -16,7 +16,7 @@ public class BallController : MonoBehaviour
     private float widthPosition = 0f;
     private float widthVelocity = 0.1f;
     private float widthDirection = 1f;
-    
+
     private bool isMoving = false;
 
     [SerializeField] private Rigidbody rb;
@@ -38,9 +38,11 @@ public class BallController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !isMoving)
         {
             isMoving = true;
-            directionArrow.SetActive(false);
             rb.AddForce(new Vector3(widthDirection * horizontalSpeed * Random.value, 0, verticalSpeed), ForceMode.VelocityChange);
         }
+
+        if (isMoving) directionArrow.SetActive(false);
+        else directionArrow.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -66,7 +68,7 @@ public class BallController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         isMoving = false;
-        directionArrow.SetActive(true);
+        directionArrow.SetActive(false);
         widthPosition = 0f;
     }
 }
