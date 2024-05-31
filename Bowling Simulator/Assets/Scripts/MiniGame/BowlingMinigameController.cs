@@ -68,7 +68,6 @@ public class BowlingMinigameController : MonoBehaviour
 
     void Start()
     {
-        GameState.NextStage();
         UpdateScoreboard();
     }
 

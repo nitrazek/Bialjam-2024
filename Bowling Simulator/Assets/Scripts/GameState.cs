@@ -18,7 +18,6 @@ public enum StoryStages
     DesktopWelcome,
     ChatWindowOpen,
     DesktopInstalledGame,
-    GameStarted,
     Round1,
     Round2,
     DesktopAnomaly,

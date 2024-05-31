@@ -9,7 +9,10 @@ public class TutorialController : MonoBehaviour
 
     void Start()
     {
-        gameObject.SetActive(true);
+        Debug.Log("GameState: " + GameState.StoryStage.ToString());
+        if (GameState.StoryStage == StoryStages.Round1) gameObject.SetActive(true);
+        else gameObject.SetActive(false);
+
         button.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
