@@ -9,6 +9,9 @@ public class MusicController : MonoBehaviour
 
     void Start()
     {
-        audioSource.PlayOneShot(beepSound);
+        if (GameState.StoryStage == StoryStages.DesktopWelcome)
+        {
+            audioSource.PlayOneShot(beepSound);
+        }
     }
 }
