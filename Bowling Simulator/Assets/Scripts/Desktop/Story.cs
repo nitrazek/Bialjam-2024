@@ -15,7 +15,7 @@ public class Story : MonoBehaviour
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
-    public float cmdShowDuration = 0.1f;
+    public float cmdShowDuration = 1.5f;
     public Vector2[] shiftedIconPositions = new Vector2[] {  };
     public AudioClip windowOpenClip;
     public AudioClip windowCloseClip;
