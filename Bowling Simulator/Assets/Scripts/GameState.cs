@@ -28,4 +28,8 @@ public enum StoryStages
     RightsAnomalyForced,
     Round5,
     Round6,
+    Round7,
+    LastDesktopAnomaly,
+    Round8,
+    Round9,
 }
