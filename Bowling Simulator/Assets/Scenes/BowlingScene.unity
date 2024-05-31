@@ -927,6 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboardText: {fileID: 1994851848}
+  gameState: {fileID: 0}
 --- !u!4 &605942891
 Transform:
   m_ObjectHideFlags: 0
@@ -1373,18 +1374,18 @@ MonoBehaviour:
   PixelMaskTexture: {fileID: 2800000, guid: 55b9f85457b9afc46834d927aa2e61cc, type: 3}
   MaskRepeatX: 160
   MaskRepeatY: 90
-  PixelMaskBrightness: 1.755
+  PixelMaskBrightness: 1.66
   IQOffset: {x: 0, y: 0}
   IQScale: {x: 1, y: 1}
   RFNoise: 0.16
   LumaSharpen: 0
   QuantizeRGB: 1
-  RBits: 3
-  GBits: 3
-  BBits: 3
+  RBits: 4
+  GBits: 4
+  BBits: 4
   EnableBurstCountAnimation: 1
   AntiFlicker: 0
-  EnableRollingFlicker: 1
+  EnableRollingFlicker: 0
   RollingFlickerFactor: 0.556
   RollingVSyncTime: 0
 --- !u!1 &1006612367
@@ -2729,7 +2730,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
