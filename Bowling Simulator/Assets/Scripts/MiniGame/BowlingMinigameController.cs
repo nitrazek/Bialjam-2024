@@ -11,6 +11,7 @@ public class BowlingMinigameController : MonoBehaviour
     private short currentRoundHalf = 0;
 
     [SerializeField] private TextMeshProUGUI scoreboardText;
+    [SerializeField] private GameState gameState;
 
     private bool IsStrike(int roundId)
     {
