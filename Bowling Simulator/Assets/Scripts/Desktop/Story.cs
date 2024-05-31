@@ -28,27 +28,35 @@ public class Story : MonoBehaviour
         windowCloseSound.clip = windowCloseClip;
         messageSound = gameObject.AddComponent<AudioSource>();
         messageSound.clip = messageClip;
-        StartCoroutine(PlayStory());
+        if(GameState.StoryStage == StoryStages.DesktopWelcome)
+            StartCoroutine(PlayBegginingStory());
+        else if(GameState.StoryStage == StoryStages.DesktopAnomaly)
+            StartCoroutine(PlayFirstAnomaly());
     }
 
-    private IEnumerator PlayStory()
+    private IEnumerator PlayBegginingStory()
     {
         yield return new WaitForSeconds(7f);
         GameState.NextStage();
         windowOpenSound.Play();
         chatWindow.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         messageSound.Play();
         chatBubble_1.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3);
         messageSound.Play();
         chatBubble_2.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         messageSound.Play();
         chatBubble_3.gameObject.SetActive(true);
+    }
+
+    private IEnumerator PlayFirstAnomaly()
+    {
+        yield return null;
     }
 
     public void DownloadGame()
