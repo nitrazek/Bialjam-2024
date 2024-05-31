@@ -19,9 +19,14 @@ public class BallEndCollider : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball")
-        {
-            controller.OnThrowEnd();
-            sceneController.OnThrowEnd();
-        }
+            StartCoroutine(RestartBallWithDelay());
+    }
+
+    private IEnumerator RestartBallWithDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        controller.OnThrowEnd();
+        sceneController.OnThrowEnd();
+        yield return null;
     }
 }

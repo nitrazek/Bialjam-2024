@@ -16,7 +16,6 @@ public class Story : MonoBehaviour
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
     public float cmdShowDuration = 1.5f;
-    public Vector2[] shiftedIconPositions = new Vector2[] {  };
     public AudioClip windowOpenClip;
     public AudioClip windowCloseClip;
     public AudioClip messageClip;
@@ -66,9 +65,9 @@ public class Story : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         cmdWindow.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.02f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.1f));
         yield return new WaitForSeconds(cmdShowDuration);
-        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.02f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.1f));
         cmdWindow.gameObject.SetActive(false);
     }
 
@@ -79,10 +78,10 @@ public class Story : MonoBehaviour
 
     private IEnumerator SimulateDownloading()
     {
-        Button downloadLinkButton = chatBubble_3.transform.GetChild(0).GetComponent<Button>();
+        Button downloadLinkButton = chatBubble_3.transform.GetChild(1).GetComponent<Button>();
         downloadLinkButton.enabled = false;
 
-        Image downloadImage = chatBubble_3.transform.GetChild(1).GetComponent<Image>();
+        Image downloadImage = chatBubble_3.transform.GetChild(2).GetComponent<Image>();
         downloadImage.gameObject.SetActive(true);
         for (int i = 0; i < 2; i++)
         {
@@ -96,7 +95,7 @@ public class Story : MonoBehaviour
         chatBubble_2.gameObject.SetActive(false);
         chatBubble_1.gameObject.SetActive(false);
         chatWindow.gameObject.SetActive(false);
-        downloadLinkButton.enabled = false;
+        downloadLinkButton.enabled = true;
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
