@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 229780504}
   - component: {fileID: 229780503}
   - component: {fileID: 229780502}
+  - component: {fileID: 229780506}
   m_Layer: 0
   m_Name: beaver (1)
   m_TagString: Untagged
@@ -424,6 +425,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1793402026}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -73}
+--- !u!114 &229780506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229780501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20cc5fd81d82754c867fb1d6e3b3959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 605942890}
+  sceneController: {fileID: 1006612368}
 --- !u!1 &270212291
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +4507,7 @@ GameObject:
   - component: {fileID: 3858211884717331499}
   - component: {fileID: 6183907631838985191}
   - component: {fileID: 6183907631838985192}
+  - component: {fileID: 6183907631838985193}
   m_Layer: 0
   m_Name: beaver
   m_TagString: Untagged
@@ -5146,6 +5162,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0372243, y: 0.050831437, z: 0.049476318}
   m_Center: {x: 0.008915578, y: 0, z: -0.0013066258}
+--- !u!114 &6183907631838985193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312746155469481166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20cc5fd81d82754c867fb1d6e3b3959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 605942890}
+  sceneController: {fileID: 1006612368}
 --- !u!33 &6313878508535152621
 MeshFilter:
   m_ObjectHideFlags: 0

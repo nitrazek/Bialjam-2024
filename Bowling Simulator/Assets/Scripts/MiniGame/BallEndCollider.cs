@@ -15,4 +15,13 @@ public class BallEndCollider : MonoBehaviour
             sceneController.OnThrowEnd();
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            controller.OnThrowEnd();
+            sceneController.OnThrowEnd();
+        }
+    }
 }
