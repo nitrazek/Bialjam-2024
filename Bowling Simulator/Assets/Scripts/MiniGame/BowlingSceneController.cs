@@ -12,6 +12,5 @@ public class BowlingSceneController : MonoBehaviour
     public void OnThrowEnd()
     {
         ball.Reset();
-        pins.Reset();
     }
 }

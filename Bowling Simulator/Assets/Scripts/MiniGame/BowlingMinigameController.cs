@@ -11,6 +11,7 @@ public class BowlingMinigameController : MonoBehaviour
     private short currentRoundHalf = 0;
 
     [SerializeField] private TextMeshProUGUI scoreboardText;
+    [SerializeField] private PinResetter pins;
 
     private bool IsStrike(int roundId)
     {
@@ -102,6 +103,12 @@ public class BowlingMinigameController : MonoBehaviour
             currentRoundHalf = 1;
         }
 
+        pins.Reset(currentRoundHalf);
         UpdateScoreboard();
+    }
+
+    public short GetCurrentRoundHalf()
+    {
+        return currentRoundHalf;
     }
 }

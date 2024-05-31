@@ -927,6 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboardText: {fileID: 1994851848}
+  pins: {fileID: 1380240051}
 --- !u!4 &605942891
 Transform:
   m_ObjectHideFlags: 0

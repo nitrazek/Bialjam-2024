@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class PinResetter : MonoBehaviour
 {
-    public void Reset()
+    public void Reset(short currentRoundHalf)
     {
-        PinController[] pins = GetComponentsInChildren<PinController>();
+        PinController[] pins = GetComponentsInChildren<PinController>(true);
         foreach (PinController pin in pins)
         {
-            pin.Reset();
+            if (pin.IsKnockedOver() && currentRoundHalf == 1)
+            {
+                pin.SetEnable(false);
+            }
+            else
+            {
+                pin.SetEnable(true);
+                pin.Reset();
+            }
         }
     }
 }

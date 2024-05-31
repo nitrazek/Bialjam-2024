@@ -37,4 +37,11 @@ public class PinController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         isKnockedOver = false;
     }
+
+    public void SetEnable(bool enable)
+    {
+        gameObject.SetActive(enable);
+    }
+
+    public bool IsKnockedOver() {  return isKnockedOver; }
 }
