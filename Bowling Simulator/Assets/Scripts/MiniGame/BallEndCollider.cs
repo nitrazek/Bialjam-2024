@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BallEndCollider : MonoBehaviour
 {
-    [SerializeField] BowlingMinigameController controller;
-    [SerializeField] BowlingSceneController sceneController;
-    [SerializeField] BallCamera ballCamera;
+    [SerializeField] private BowlingMinigameController controller;
+    [SerializeField] private BowlingSceneController sceneController;
+    [SerializeField] private BallCamera ballCamera;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ball")
+        if (!sceneController.hasBallCollided && other.gameObject.tag == "Ball")
         {
+            sceneController.hasBallCollided = true;
             ballCamera.OnStopFreeze();
             controller.OnThrowEnd();
             sceneController.OnThrowEnd();
@@ -20,15 +21,19 @@ public class BallEndCollider : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (!sceneController.hasBallCollided && collision.gameObject.tag == "Ball")
+        {
+            sceneController.hasBallCollided = true;
             StartCoroutine(RestartBallWithDelay());
+        }
     }
 
     private IEnumerator RestartBallWithDelay()
     {
-        yield return new WaitForSeconds(0.5f);
-        controller.OnThrowEnd();
+        yield return new WaitForSeconds(0.15f);
+        ballCamera.OnStopFreeze();
         sceneController.OnThrowEnd();
+        controller.OnThrowEnd();
         yield return null;
     }
 }
