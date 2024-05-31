@@ -13,6 +13,8 @@ public class BowlingSceneController : MonoBehaviour
     [SerializeField] private GameObject obstacles_round3;
     [SerializeField] private GameObject obstacles_round4;
     [SerializeField] private GameObject obstacles_round5;
+    [SerializeField] private GameObject obstacles_round6;
+    [SerializeField] private GameObject obstacles_round7;
 
     void Start()
     {
@@ -28,6 +30,8 @@ public class BowlingSceneController : MonoBehaviour
         if (GameState.StoryStage == StoryStages.Round3) currentObstacles = obstacles_round3;
         else if (GameState.StoryStage == StoryStages.Round4) currentObstacles = obstacles_round4;
         else if (GameState.StoryStage >= StoryStages.Round5) currentObstacles = obstacles_round5;
+        else if (GameState.StoryStage >= StoryStages.Round6) currentObstacles = obstacles_round6;
+        else if (GameState.StoryStage >= StoryStages.Round7) currentObstacles = obstacles_round7;
 
         if (currentObstacles != null) currentObstacles.SetActive(true);
     }
