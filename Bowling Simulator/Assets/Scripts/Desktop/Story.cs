@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,10 +45,10 @@ public class Story : MonoBehaviour
 
     private IEnumerator PlayBegginingStory()
     {
-        GameState.UiBlocked = true;
         gameButton.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(4f);
+        GameState.UiBlocked = true;
         GameState.NextStage();
         windowOpenSound.Play();
         chatWindow.gameObject.SetActive(true);
@@ -82,6 +83,8 @@ public class Story : MonoBehaviour
         GameState.UiBlocked = true;
         yield return new WaitForSeconds(1f);
         rightsWindow.gameObject.SetActive(true);
+        TMP_Text yesText = rightsWindow.transform.GetChild(1).GetComponent<Button>().transform.GetChild(0).GetComponent<TMP_Text>();
+        yesText.text = "Nie";
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
     }
 
@@ -90,6 +93,8 @@ public class Story : MonoBehaviour
         GameState.UiBlocked = true;
         yield return new WaitForSeconds(1f);
         rightsWindow.gameObject.SetActive(true);
+        TMP_Text yesText = rightsWindow.transform.GetChild(1).GetComponent<Button>().transform.GetChild(0).GetComponent<TMP_Text>();
+        yesText.text = "Tak";
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
     }
 
@@ -101,8 +106,6 @@ public class Story : MonoBehaviour
 
     public void RightsWindow_NoButton()
     {
-        if (GameState.StoryStage == StoryStages.RightsAnomalyForced) return;
-
         rightsWindow.gameObject.SetActive(false);
         GameState.UiBlocked = false;
     } 

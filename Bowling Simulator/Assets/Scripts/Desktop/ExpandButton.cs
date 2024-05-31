@@ -16,6 +16,7 @@ public class ExpandButton : MonoBehaviour
 
     public void OnPointerEnter(BaseEventData eventData)
     {
+        if (GameState.UiBlocked) return;
         StopAllCoroutines();
         StartCoroutine(ScaleButton(transform.localScale, originalScale * scaleMultiplier, animationDuration));
     }
