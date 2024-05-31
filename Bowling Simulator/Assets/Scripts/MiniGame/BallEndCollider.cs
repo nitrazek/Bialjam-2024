@@ -6,11 +6,13 @@ public class BallEndCollider : MonoBehaviour
 {
     [SerializeField] BowlingMinigameController controller;
     [SerializeField] BowlingSceneController sceneController;
+    [SerializeField] BallCamera ballCamera;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ball")
         {
+            ballCamera.OnStopFreeze();
             controller.OnThrowEnd();
             sceneController.OnThrowEnd();
         }
