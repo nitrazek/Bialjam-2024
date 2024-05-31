@@ -79,6 +79,9 @@ public class Story : MonoBehaviour
 
     private IEnumerator SimulateDownloading()
     {
+        Button downloadLinkButton = chatBubble_3.transform.GetChild(0).GetComponent<Button>();
+        downloadLinkButton.enabled = false;
+
         Image downloadImage = chatBubble_3.transform.GetChild(1).GetComponent<Image>();
         downloadImage.gameObject.SetActive(true);
         for (int i = 0; i < 2; i++)
@@ -93,9 +96,11 @@ public class Story : MonoBehaviour
         chatBubble_2.gameObject.SetActive(false);
         chatBubble_1.gameObject.SetActive(false);
         chatWindow.gameObject.SetActive(false);
+        downloadLinkButton.enabled = false;
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
+
     }
 
     private void ChangePositionOfIcons()
