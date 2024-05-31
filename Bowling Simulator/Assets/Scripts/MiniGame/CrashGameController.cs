@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CrashGameController : MonoBehaviour
 {
     public AudioSource audio;
+    public Camera camera;
     public AudioClip crash_sound;
     private bool isCoroutineRunning = false;
 
@@ -23,8 +24,12 @@ public class CrashGameController : MonoBehaviour
         audio.Stop();
         audio.PlayOneShot(crash_sound);
 
+        camera.enabled = false;
+
         // Wait until the crash sound finishes playing
         yield return new WaitWhile(() => audio.isPlaying);
+
+        camera.enabled = true;
 
         // Load the new scene
         SceneManager.LoadScene("DesktopScene");
