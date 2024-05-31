@@ -37,7 +37,7 @@ public class BallController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && !isMoving)
         {
             isMoving = true;
-            rb.AddForce(new Vector3(0, 0, verticalSpeed), ForceMode.VelocityChange);
+            rb.AddForce(new Vector3(widthDirection * horizontalSpeed * Random.value, 0, verticalSpeed), ForceMode.VelocityChange);
         }
     }
 
