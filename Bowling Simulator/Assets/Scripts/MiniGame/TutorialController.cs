@@ -10,9 +10,18 @@ public class TutorialController : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(true);
-        button.onClick.AddListener(() => {
+        button.onClick.AddListener(() =>
+        {
             gameObject.SetActive(false);
         });
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.Return))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public bool IsActive()
