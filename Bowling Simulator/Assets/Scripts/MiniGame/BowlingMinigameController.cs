@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BowlingMinigameController : MonoBehaviour
@@ -8,6 +9,9 @@ public class BowlingMinigameController : MonoBehaviour
     private short totalScore = 0;
     private short currentRound = 0;
     private short currentRoundHalf = 0;
+
+    [SerializeField] private TextMeshProUGUI scoreboardText;
+    [SerializeField] private GameState gameState;
 
     private bool IsStrike(int roundId)
     {
@@ -62,6 +66,13 @@ public class BowlingMinigameController : MonoBehaviour
         return totalScore;
     }
 
+    private void UpdateScoreboard()
+    {
+        scoreboardText.text = "Runda: " + (currentRound+1).ToString() + ", Rzut: " + (currentRoundHalf+1).ToString() +
+            "\n| " + rounds[currentRound][0] + " | " + rounds[currentRound][1] + " |" +
+            "\nWynik: " + totalScore;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +82,7 @@ public class BowlingMinigameController : MonoBehaviour
             rounds[i][0] = 0;
             rounds[i][1] = 0;
         }
+        UpdateScoreboard();
     }
 
     public void OnPinKnockedOver()
@@ -91,5 +103,7 @@ public class BowlingMinigameController : MonoBehaviour
         {
             currentRoundHalf = 1;
         }
+
+        UpdateScoreboard();
     }
 }
