@@ -91,7 +91,5 @@ public class BowlingMinigameController : MonoBehaviour
         {
             currentRoundHalf = 1;
         }
-
-        //Debug.Log("Total score: " + totalScore + ", Round: " + currentRound);
     }
 }

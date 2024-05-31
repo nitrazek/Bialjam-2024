@@ -20,6 +20,7 @@ public class BallController : MonoBehaviour
     private bool isMoving = false;
 
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private TutorialController tutorial;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        if (tutorial.IsActive()) return;
+
         horizontal = Input.GetAxisRaw("Horizontal");
         if (Input.GetKey(KeyCode.Space) && !isMoving)
         {
