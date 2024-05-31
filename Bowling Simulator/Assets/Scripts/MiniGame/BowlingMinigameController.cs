@@ -11,7 +11,6 @@ public class BowlingMinigameController : MonoBehaviour
     private short currentRoundHalf = 0;
 
     [SerializeField] private TextMeshProUGUI scoreboardText;
-    [SerializeField] private GameState gameState;
 
     private bool IsStrike(int roundId)
     {
@@ -60,8 +59,6 @@ public class BowlingMinigameController : MonoBehaviour
             {
                 totalScore += GetSpareBonus(i);
             }
-
-            Debug.Log("Total score: " + totalScore);
         }
         return totalScore;
     }
@@ -73,9 +70,9 @@ public class BowlingMinigameController : MonoBehaviour
             "\nWynik: " + totalScore;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        GameState.NextStage();
         for (int i=0; i<10; i++)
         {
             rounds[i] = new short[2];
@@ -98,6 +95,7 @@ public class BowlingMinigameController : MonoBehaviour
         {
             currentRound++;
             currentRoundHalf = 0;
+            GameState.NextStage();
         }
         else
         {
