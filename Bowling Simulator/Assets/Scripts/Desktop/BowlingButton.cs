@@ -13,7 +13,8 @@ public class BowlingButton : MoveButton
             return;
         }
         
-        if(GameState.StoryStage == StoryStages.DesktopInstalledGame)
+        if(GameState.StoryStage == StoryStages.DesktopInstalledGame
+           || GameState.StoryStage == StoryStages.DesktopAnomaly)
         {
             SceneManager.LoadScene("BowlingScene");
             GameState.NextStage();
