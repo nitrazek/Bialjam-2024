@@ -5997,6 +5997,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1816567355}
   screamSound: {fileID: 8300000, guid: e5655ab1af8f4514291c33b6b0e6fb1e, type: 3}
+  barkSounds:
+  - {fileID: 8300000, guid: adc9441065910d94bbe71d01a6f1ccf3, type: 3}
+  - {fileID: 8300000, guid: dd4ff023f05ab6742b8e7c99e71dbab8, type: 3}
 --- !u!1 &1827982999
 GameObject:
   m_ObjectHideFlags: 0
