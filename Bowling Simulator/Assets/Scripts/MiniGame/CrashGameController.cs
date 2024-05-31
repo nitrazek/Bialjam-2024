@@ -16,7 +16,8 @@ public class CrashGameController : MonoBehaviour
         if(!isCoroutineRunning &&
           (GameState.StoryStage == StoryStages.DesktopAnomaly
           || GameState.StoryStage == StoryStages.RightsAnomaly
-          || GameState.StoryStage == StoryStages.RightsAnomalyForced))
+          || GameState.StoryStage == StoryStages.RightsAnomalyForced
+          || GameState.StoryStage == StoryStages.Round6))
         {
             StartCoroutine(PlayCrashSoundAndLoadScene());
         }
@@ -34,6 +35,7 @@ public class CrashGameController : MonoBehaviour
         yield return new WaitWhile(() => audioSource.isPlaying);
 
         ballCamera.OnStopFreeze();
+        ballCamera.TurnOffTargetTexture();
 
         // Load the new scene
         SceneManager.LoadScene("DesktopScene");

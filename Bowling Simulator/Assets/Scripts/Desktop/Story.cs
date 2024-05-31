@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Story : MonoBehaviour
@@ -27,6 +28,8 @@ public class Story : MonoBehaviour
 
     void Start()
     {
+        //SceneManager.LoadScene("BowlingScene", LoadSceneMode.Additive);
+        //return;
         windowOpenSound = gameObject.AddComponent<AudioSource>();
         windowOpenSound.clip = windowOpenClip;
         windowCloseSound = gameObject.AddComponent<AudioSource>();
