@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class BowlingMinigameController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreboardText;
     [SerializeField] private PinResetter pins;
+    [SerializeField] private VideoPlayer videoplayer;
+    [SerializeField] private VideoClip strike_clip;
+    [SerializeField] private VideoClip spare_clip;
+    [SerializeField] private VideoClip eyes_clip;
 
     private bool IsStrike(int roundId)
     {

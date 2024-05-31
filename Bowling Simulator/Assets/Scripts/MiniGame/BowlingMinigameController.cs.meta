@@ -3,7 +3,13 @@ guid: df4e7cdb8a022f54ca1ef78dce6021c2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreboardText: {instanceID: 0}
+  - pins: {instanceID: 0}
+  - videoplayer: {instanceID: 0}
+  - strike_clip: {instanceID: 0}
+  - spare_clip: {instanceID: 0}
+  - eyes_clip: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
