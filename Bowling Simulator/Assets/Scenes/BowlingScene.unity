@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &84144329
 Transform:
   m_ObjectHideFlags: 0
@@ -5644,6 +5644,7 @@ MonoBehaviour:
   obstacles_round5: {fileID: 1231619269}
   obstacles_round6: {fileID: 247763678}
   obstacles_round7: {fileID: 119108619}
+  obstacles_round8: {fileID: 84144328}
 --- !u!4 &1006612369
 Transform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,9 @@ public class Story : MonoBehaviour
     public Image chatBubble_2;
     public Image chatBubble_3;
     public Image rightsWindow;
+    public Image bober1Window;
+    public Image bober2Window;
+    public Image bober3Window;
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
@@ -36,14 +39,16 @@ public class Story : MonoBehaviour
         windowCloseSound.clip = windowCloseClip;
         messageSound = gameObject.AddComponent<AudioSource>();
         messageSound.clip = messageClip;
-        if(GameState.StoryStage == StoryStages.DesktopWelcome)
+        if (GameState.StoryStage == StoryStages.DesktopWelcome)
             StartCoroutine(PlayBegginingStory());
-        else if(GameState.StoryStage == StoryStages.DesktopAnomaly)
+        else if (GameState.StoryStage == StoryStages.DesktopAnomaly)
             StartCoroutine(PlayFirstAnomaly());
-        else if(GameState.StoryStage == StoryStages.RightsAnomaly)
+        else if (GameState.StoryStage == StoryStages.RightsAnomaly)
             StartCoroutine(PlayRightsAnomaly());
-        else if(GameState.StoryStage == StoryStages.RightsAnomalyForced)
+        else if (GameState.StoryStage == StoryStages.RightsAnomalyForced)
             StartCoroutine(PlayRightsAnomalyForced());
+        else if (GameState.StoryStage == StoryStages.Round7)
+            StartOnlyWindow();
     }
 
     private IEnumerator PlayBegginingStory()
@@ -101,6 +106,8 @@ public class Story : MonoBehaviour
         TMP_Text yesText = rightsWindow.transform.GetChild(1).GetComponent<Button>().transform.GetChild(0).GetComponent<TMP_Text>();
         yesText.text = "Tak";
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
+
+        StartCoroutine(StartDistractions());
     }
 
     public void RightsWindow_YesButton()
@@ -113,11 +120,45 @@ public class Story : MonoBehaviour
     {
         rightsWindow.gameObject.SetActive(false);
         GameState.UiBlocked = false;
-    } 
+    }
+    
+    public void StartOnlyWindow()
+    {
+        GameState.NextStage();
+        SceneManager.LoadScene("BowlingScene");
+    }
 
     public void DownloadGame()
     {
         StartCoroutine(SimulateDownloading());
+    }
+
+    private IEnumerator StartDistractions()
+    {
+        yield return new WaitUntil(() => GameState.StoryStage >= StoryStages.Round5);
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < icons.transform.childCount; i++)
+        {
+            Button icon = icons.transform.GetChild(i).GetComponent<Button>();
+            Debug.Log(icon);
+            if (icon.name == "GameButton") continue;
+
+            icon.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        yield return new WaitUntil(() => GameState.StoryStage >= StoryStages.Round6);
+        yield return new WaitForSeconds(0.5f);
+        bober1Window.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeImage(bober1Window, 0f, 1f, 0.15f));
+        
+        yield return new WaitForSeconds(0.7f);
+        bober2Window.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeImage(bober2Window, 0f, 1f, 0.15f));
+
+        yield return new WaitForSeconds(0.7f);
+        bober3Window.gameObject.SetActive(true);
+        yield return StartCoroutine(FadeImage(bober3Window, 0f, 1f, 0.15f));
     }
 
     private IEnumerator SimulateDownloading()

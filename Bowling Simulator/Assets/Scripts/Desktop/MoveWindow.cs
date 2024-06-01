@@ -10,7 +10,7 @@ public class MoveWindow : MonoBehaviour
     {
         PointerEventData pointerEventData = (PointerEventData)eventData;
         Vector3 pointerPosition = pointerEventData.position;
-        pointerPosition.y -= 360;
+        pointerPosition.y -= GetComponent<RectTransform>().rect.height / 2;
 
         Vector2 position;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -22,5 +22,10 @@ public class MoveWindow : MonoBehaviour
         Debug.Log(position);
 
         transform.position = canvas.transform.TransformPoint(position);
+    }
+
+    public void Window_Close()
+    {
+        gameObject.SetActive(false);
     }
 }

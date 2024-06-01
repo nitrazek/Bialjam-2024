@@ -17,10 +17,10 @@ public class BallCamera : MonoBehaviour
     {
         if(GameState.StoryStage == StoryStages.Round5)
         {
-            GetComponent<Camera>().targetTexture = sceneInScene;
             GetComponent<CRTEffect>().enabled = false;
             GetComponent<AudioListener>().enabled = false;
             eventSystem.enabled = false;
+            GetComponent<Camera>().targetTexture = sceneInScene;
         }
     }
 
