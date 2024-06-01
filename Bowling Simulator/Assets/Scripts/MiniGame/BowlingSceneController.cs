@@ -4,41 +4,39 @@ using UnityEngine;
 
 public class BowlingSceneController : MonoBehaviour
 {
-    private GameObject currentObstacles;
+    private StoryStages currentStage;
+    private int obstaclesIndex = -1;
     public bool isTutorialShown = true;
     public bool hasBallCollided = false;
 
     [SerializeField] private BallController ball;
     [SerializeField] private GameObject tutorialCanvas;
-    [SerializeField] private GameObject obstacles_round3;
-    [SerializeField] private GameObject obstacles_round4;
-    [SerializeField] private GameObject obstacles_round5;
-    [SerializeField] private GameObject obstacles_round6;
-    [SerializeField] private GameObject obstacles_round7;
-    [SerializeField] private GameObject obstacles_round8;
+    [SerializeField] private GameObject[] obstaclesRounds;
 
     void Start()
     {
         tutorialCanvas.SetActive(true);
-        currentObstacles = null;
-        obstacles_round3.SetActive(false);
-        obstacles_round4.SetActive(false);
-        obstacles_round5.SetActive(false);
-        obstacles_round6.SetActive(false);
-        obstacles_round7.SetActive(false);
-        obstacles_round8.SetActive(false);
+        foreach (GameObject obstacles in obstaclesRounds)
+        {
+            obstacles.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (GameState.StoryStage == StoryStages.Round3) currentObstacles = obstacles_round3;
-        else if (GameState.StoryStage == StoryStages.Round4) currentObstacles = obstacles_round4;
-        else if (GameState.StoryStage == StoryStages.Round5) currentObstacles = obstacles_round5;
-        else if (GameState.StoryStage == StoryStages.Round6) currentObstacles = obstacles_round6;
-        else if (GameState.StoryStage == StoryStages.Round7) currentObstacles = obstacles_round7;
-        else if (GameState.StoryStage >= StoryStages.Round8) currentObstacles = obstacles_round8;
+        StoryStages currentStage = GameState.StoryStage;
+        if (currentStage == StoryStages.Round3) obstaclesIndex = 0;
+        if (currentStage == StoryStages.Round4) obstaclesIndex = 1;
+        if (currentStage == StoryStages.Round5) obstaclesIndex = 2;
+        if (currentStage == StoryStages.Round6) obstaclesIndex = 3;
+        if (currentStage == StoryStages.Round7) obstaclesIndex = 4;
+        if (currentStage == StoryStages.Round8) obstaclesIndex = 5;
 
-        if (currentObstacles != null) currentObstacles.SetActive(true);
+        for (int i = 0; i < obstaclesRounds.Length; i++)
+        {
+            if (i == obstaclesIndex) obstaclesRounds[i].SetActive(true);
+            else obstaclesRounds[i].SetActive(false);
+        }
     }
 
     public void OnThrowEnd()
