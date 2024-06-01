@@ -17,12 +17,8 @@ public class PinResetter : MonoBehaviour
 
     void Update()
     {
-        StoryStages currentStage = GameState.StoryStage;
-        if (currentStage == StoryStages.Round5 && lastStoryStage != currentStage)
-        {
-            lastStoryStage = currentStage;
-            currentPins = dawgPins;
-        }
+        if (GameState.StoryStage >= StoryStages.Round5) currentPins = dawgPins;
+        else currentPins = pins;
     }
 
     public void Reset(short currentRoundHalf)
