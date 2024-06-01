@@ -31,7 +31,7 @@ public class BowlingMinigameController : MonoBehaviour
 
     private bool IsSpare(int roundId)
     {
-        return BowlingState.rounds[roundId][0] + BowlingState.rounds[roundId][1] == 10;
+        return (BowlingState.rounds[roundId][0] != 10) && BowlingState.rounds[roundId][0] + BowlingState.rounds[roundId][1] == 10;
     }
 
     private short GetSpareBonus(int roundId)
@@ -73,6 +73,7 @@ public class BowlingMinigameController : MonoBehaviour
 
     void Start()
     {
+        videoplayer.enabled = false;
         UpdateScoreboard();
     }
 
@@ -85,7 +86,21 @@ public class BowlingMinigameController : MonoBehaviour
     {
         BowlingState.totalScore = GetTotalScore();
 
-        if(BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
+        if (IsStrike(BowlingState.currentRound))
+        {
+            videoplayer.enabled = true;
+            videoplayer.clip = strike_clip;
+            videoplayer.Play();
+        }
+
+        if (IsSpare(BowlingState.currentRound))
+        {
+            videoplayer.enabled = true;
+            videoplayer.clip = spare_clip;
+            videoplayer.Play();
+        }
+
+        if (BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
         {
             BowlingState.currentRound++;
             BowlingState.currentRoundHalf = 0;
@@ -96,8 +111,26 @@ public class BowlingMinigameController : MonoBehaviour
             BowlingState.currentRoundHalf = 1;
         }
 
+        if (videoplayer.clip)
+        {
+            StartCoroutine(PlayVideoAndProceed());
+        }
+
+        // Execute commands after the video has started and played
         pins.Reset(BowlingState.currentRoundHalf);
         UpdateScoreboard();
+    }
+
+    IEnumerator PlayVideoAndProceed()
+    {
+        while (videoplayer.isPlaying)
+        {
+            yield return null;
+        }
+
+        videoplayer.Stop();
+        videoplayer.enabled = false;
+        videoplayer.clip = null;
     }
 
     public short GetCurrentRoundHalf()
