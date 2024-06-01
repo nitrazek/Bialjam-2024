@@ -215,9 +215,10 @@ public class Story : MonoBehaviour
                 icon.transform.localPosition = new Vector2(0, 0);
                 continue;
             }
-            if (icon.name == "TrashButton")
+            else if (icon.name == "TrashButton")
             {
                 icon.transform.localPosition = new Vector2(800, 250);
+                continue;
             }
 
             icon.gameObject.SetActive(false);
