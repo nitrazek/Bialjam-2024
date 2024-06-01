@@ -10744,7 +10744,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 1
-  m_AspectRatio: 4
+  m_AspectRatio: 5
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
@@ -14186,7 +14186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1793402026
 Transform:
   m_ObjectHideFlags: 0
@@ -16709,6 +16709,7 @@ GameObject:
   - component: {fileID: 6183907631838985191}
   - component: {fileID: 6183907631838985192}
   - component: {fileID: 6183907631838985193}
+  - component: {fileID: 6183907631838985194}
   m_Layer: 0
   m_Name: beaver
   m_TagString: Untagged
@@ -17630,6 +17631,27 @@ MonoBehaviour:
   controller: {fileID: 605942890}
   sceneController: {fileID: 1006612368}
   ballCamera: {fileID: 866591911}
+--- !u!95 &6183907631838985194
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312746155469481166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbf84075137b6b64a8968c5f67cf5cb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &6313878508535152621
 MeshFilter:
   m_ObjectHideFlags: 0
