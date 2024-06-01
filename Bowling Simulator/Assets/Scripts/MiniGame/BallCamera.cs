@@ -9,7 +9,9 @@ public class BallCamera : MonoBehaviour
     private Vector3 offset;
     private bool isFrozen = false;
 
-    [SerializeField] private Transform target;
+    private Transform target;
+    [SerializeField] private Transform ball;
+    [SerializeField] private Transform head;
     [SerializeField] private RenderTexture sceneInScene;
     [SerializeField] private EventSystem eventSystem;
 
@@ -26,11 +28,14 @@ public class BallCamera : MonoBehaviour
 
     private void Awake()
     {
+        target = ball;
         offset = transform.position - target.position;
     }
-
     private void LateUpdate()
     {
+        if (GameState.StoryStage >= StoryStages.Round9) target = head;
+        else target = ball;
+
         if (!isFrozen) transform.position = new Vector3(transform.position.x, transform.position.y, target.position.z + offset.z);
     }
 
