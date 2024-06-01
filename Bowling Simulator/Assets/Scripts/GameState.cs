@@ -34,4 +34,5 @@ public enum StoryStages
     Round8,
     Round9,
     Round10,
+    FinalScene
 }

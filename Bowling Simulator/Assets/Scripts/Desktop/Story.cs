@@ -19,6 +19,10 @@ public class Story : MonoBehaviour
     public Image bober1Window;
     public Image bober2Window;
     public Image bober3Window;
+    public Image myChatWindow;
+    public Image myChatBubble_1;
+    public Image myChatBubble_2;
+    public Image myChatBubble_3;
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
@@ -57,6 +61,9 @@ public class Story : MonoBehaviour
                 break;
             case StoryStages.TransferToBigScreen:
                 StartOnlyWindow();
+                break;
+            case StoryStages.FinalScene:
+                StartCoroutine(PlayLastScene());
                 break;
             default:
                 break;
@@ -120,6 +127,30 @@ public class Story : MonoBehaviour
         yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
 
         StartCoroutine(StartDistractions());
+    }
+
+    private IEnumerator PlayLastScene()
+    {
+        yield return new WaitForSeconds(3f);
+        GameState.UiBlocked = true;
+        windowOpenSound.Play();
+        myChatWindow.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        messageSound.Play();
+        myChatBubble_1.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        messageSound.Play();
+        myChatBubble_2.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        messageSound.Play();
+        myChatBubble_3.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        GameState.NextStage();
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void UniversalWindow_YesButton()
