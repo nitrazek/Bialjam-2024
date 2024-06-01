@@ -15,7 +15,7 @@ public class BallCamera : MonoBehaviour
 
     private void Start()
     {
-        if(GameState.StoryStage == StoryStages.Round5)
+        if(GameState.StoryStage == StoryStages.Round5 || GameState.StoryStage >= StoryStages.Round8)
         {
             GetComponent<CRTEffect>().enabled = false;
             GetComponent<AudioListener>().enabled = false;
