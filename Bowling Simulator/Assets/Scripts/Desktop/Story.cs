@@ -23,6 +23,7 @@ public class Story : MonoBehaviour
     public Image myChatBubble_1;
     public Image myChatBubble_2;
     public Image myChatBubble_3;
+    public TextMeshProUGUI scoreText;
     public float pulseScaleMultiplier = 1.1f;
     public float pulseAnimationDuration = 0.5f;
     public float downloadAnimationDuration = 0.5f;
@@ -143,6 +144,7 @@ public class Story : MonoBehaviour
         myChatBubble_1.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(3f);
+        scoreText.text = BowlingState.totalScore.ToString();
         messageSound.Play();
         myChatBubble_2.gameObject.SetActive(true);
 
