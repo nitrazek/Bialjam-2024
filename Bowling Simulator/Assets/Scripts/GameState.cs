@@ -28,6 +28,7 @@ public enum StoryStages
     RightsAnomalyForced,
     Round5,
     Round6,
+    TransferToBigScreen,
     Round7,
     LastDesktopAnomaly,
     Round8,

@@ -15,6 +15,7 @@ public class Story : MonoBehaviour
     public Image chatBubble_2;
     public Image chatBubble_3;
     public Image rightsWindow;
+    public Image locationWindow;
     public Image bober1Window;
     public Image bober2Window;
     public Image bober3Window;
@@ -54,7 +55,7 @@ public class Story : MonoBehaviour
             case StoryStages.RightsAnomalyForced:
                 StartCoroutine(PlayRightsAnomalyForced());
                 break;
-            case StoryStages.Round7:
+            case StoryStages.TransferToBigScreen:
                 StartOnlyWindow();
                 break;
             default:
@@ -92,9 +93,9 @@ public class Story : MonoBehaviour
         yield return new WaitForSeconds(1f);
         GameState.UiBlocked = true;
         cmdWindow.gameObject.SetActive(true);
-        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.1f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 0f, 1f, 0.05f));
         yield return new WaitForSeconds(cmdShowDuration);
-        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.1f));
+        yield return StartCoroutine(FadeImage(cmdWindow, 1f, 0f, 0.05f));
         GameState.UiBlocked = false;
         cmdWindow.gameObject.SetActive(false);
     }
@@ -103,10 +104,10 @@ public class Story : MonoBehaviour
     {
         GameState.UiBlocked = true;
         yield return new WaitForSeconds(1f);
-        rightsWindow.gameObject.SetActive(true);
-        TMP_Text yesText = rightsWindow.transform.GetChild(1).GetComponent<Button>().transform.GetChild(0).GetComponent<TMP_Text>();
+        locationWindow.gameObject.SetActive(true);
+        TMP_Text yesText = locationWindow.transform.GetChild(1).GetComponent<Button>().transform.GetChild(0).GetComponent<TMP_Text>();
         yesText.text = "Nie";
-        yield return StartCoroutine(FadeImage(rightsWindow, 0f, 1f, 0.1f));
+        yield return StartCoroutine(FadeImage(locationWindow, 0f, 1f, 0.1f));
     }
 
     private IEnumerator PlayRightsAnomalyForced()
@@ -121,15 +122,17 @@ public class Story : MonoBehaviour
         StartCoroutine(StartDistractions());
     }
 
-    public void RightsWindow_YesButton()
+    public void UniversalWindow_YesButton()
     {
         rightsWindow.gameObject.SetActive(false);
+        locationWindow.gameObject.SetActive(false);
         GameState.UiBlocked = false;
     }
 
-    public void RightsWindow_NoButton()
+    public void UniversalWindow_NoButton()
     {
         rightsWindow.gameObject.SetActive(false);
+        locationWindow.gameObject.SetActive(false);
         GameState.UiBlocked = false;
     }
     
@@ -137,6 +140,11 @@ public class Story : MonoBehaviour
     {
         GameState.NextStage();
         SceneManager.LoadScene("BowlingScene");
+    }
+
+    public void StartOnlySmallWindow()
+    {
+        GameState.NextStage();
     }
 
     public void DownloadGame()
@@ -154,7 +162,7 @@ public class Story : MonoBehaviour
             if (icon.name == "GameButton") continue;
 
             icon.gameObject.SetActive(false);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitUntil(() => GameState.StoryStage >= StoryStages.Round6);
@@ -204,7 +212,7 @@ public class Story : MonoBehaviour
             Button icon = icons.transform.GetChild(i).GetComponent<Button>();
             if (icon.name == "GameButton")
             {
-                icon.transform.localPosition = new Vector2(-800, 250);
+                icon.transform.localPosition = new Vector2(0, 0);
                 continue;
             }
 

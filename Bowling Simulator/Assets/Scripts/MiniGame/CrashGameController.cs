@@ -17,7 +17,8 @@ public class CrashGameController : MonoBehaviour
           (GameState.StoryStage == StoryStages.DesktopAnomaly
           || GameState.StoryStage == StoryStages.RightsAnomaly
           || GameState.StoryStage == StoryStages.RightsAnomalyForced
-          || GameState.StoryStage == StoryStages.Round7))
+          || GameState.StoryStage == StoryStages.TransferToBigScreen
+          || GameState.StoryStage == StoryStages.LastDesktopAnomaly))
         {
             StartCoroutine(PlayCrashSoundAndLoadScene());
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class BowlingButton : MoveButton
+public class GameButton : MoveButton
 {
     public RawImage sceneFrame;
     public void Button_Click()
@@ -23,7 +23,7 @@ public class BowlingButton : MoveButton
             SceneManager.LoadScene("BowlingScene");
             GameState.NextStage();
             return;
-        } else if(GameState.StoryStage == StoryStages.RightsAnomalyForced)
+        } else if(GameState.StoryStage == StoryStages.RightsAnomalyForced || GameState.StoryStage == StoryStages.LastDesktopAnomaly)
         {
             sceneFrame.gameObject.SetActive(true);
             SceneManager.LoadScene("BowlingScene", LoadSceneMode.Additive);
