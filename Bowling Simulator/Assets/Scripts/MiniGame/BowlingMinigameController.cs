@@ -86,19 +86,18 @@ public class BowlingMinigameController : MonoBehaviour
     {
         BowlingState.totalScore = GetTotalScore();
 
-        videoplayer.clip = null;
-        videoplayer.frame = 0;
-
         if (IsStrike(BowlingState.currentRound))
         {
+            videoplayer.enabled = true;
             videoplayer.clip = strike_clip;
-            videoplayer.Prepare();
+            videoplayer.Play();
         }
 
         if (IsSpare(BowlingState.currentRound))
         {
+            videoplayer.enabled = true;
             videoplayer.clip = spare_clip;
-            videoplayer.Prepare();
+            videoplayer.Play();
         }
 
         if (BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
@@ -124,10 +123,6 @@ public class BowlingMinigameController : MonoBehaviour
 
     IEnumerator PlayVideoAndProceed()
     {
-
-        videoplayer.enabled = true;
-        videoplayer.Play();
-
         while (videoplayer.isPlaying)
         {
             yield return null;
@@ -135,6 +130,7 @@ public class BowlingMinigameController : MonoBehaviour
 
         videoplayer.Stop();
         videoplayer.enabled = false;
+        videoplayer.clip = null;
     }
 
     public short GetCurrentRoundHalf()
