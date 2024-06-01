@@ -10,6 +10,7 @@ public class BowlingSceneController : MonoBehaviour
     public bool hasBallCollided = false;
 
     [SerializeField] private BallController ball;
+    [SerializeField] private BallController head;
     [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject[] obstaclesRounds;
 
@@ -31,6 +32,7 @@ public class BowlingSceneController : MonoBehaviour
         if (currentStage == StoryStages.Round6) obstaclesIndex = 3;
         if (currentStage == StoryStages.Round7) obstaclesIndex = 4;
         if (currentStage == StoryStages.Round8) obstaclesIndex = 5;
+        if (currentStage == StoryStages.Round9) obstaclesIndex = 6;
 
         for (int i = 0; i < obstaclesRounds.Length; i++)
         {
@@ -43,5 +45,6 @@ public class BowlingSceneController : MonoBehaviour
     {
         hasBallCollided = false;
         ball.Reset();
+        head.Reset();
     }
 }
