@@ -33,7 +33,7 @@ public class BallEndCollider : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         ballCamera.OnStopFreeze();
         sceneController.OnThrowEnd();
-        controller.OnThrowEnd();
+        //controller.OnThrowEnd();
         yield return null;
     }
 }
