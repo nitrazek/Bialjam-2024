@@ -89,14 +89,14 @@ public class BowlingMinigameController : MonoBehaviour
         if (IsStrike(BowlingState.currentRound))
         {
             videoplayer.enabled = true;
-            videoplayer.clip = GameState.StoryStage>=StoryStages.Round8 ? eyes_clip : strike_clip;
+            videoplayer.clip = GameState.StoryStage>=StoryStages.Round6 ? eyes_clip : strike_clip;
             videoplayer.Play();
         }
 
         if (IsSpare(BowlingState.currentRound))
         {
             videoplayer.enabled = true;
-            videoplayer.clip = GameState.StoryStage >= StoryStages.Round8 ? eyes_clip : spare_clip;
+            videoplayer.clip = GameState.StoryStage >= StoryStages.Round6 ? eyes_clip : spare_clip;
             videoplayer.Play();
         }
 
