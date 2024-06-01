@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MoveButton : MonoBehaviour
 {
     public Canvas canvas;
     public GameObject windowToOpen;
+    public RawImage sceneFrame;
     protected bool IsDragging;
 
     public void Button_Drag(BaseEventData eventData)
@@ -36,7 +38,7 @@ public class MoveButton : MonoBehaviour
 
     public void Window_Open()
     {
-        if (GameState.UiBlocked || IsDragging)
+        if (GameState.UiBlocked || IsDragging || sceneFrame.gameObject.activeSelf)
             return;
 
         windowToOpen.SetActive(true);
