@@ -31,7 +31,7 @@ public class BowlingMinigameController : MonoBehaviour
 
     private bool IsSpare(int roundId)
     {
-        return BowlingState.rounds[roundId][0] + BowlingState.rounds[roundId][1] == 10;
+        return (BowlingState.rounds[roundId][0] != 10) && BowlingState.rounds[roundId][0] + BowlingState.rounds[roundId][1] == 10;
     }
 
     private short GetSpareBonus(int roundId)
@@ -73,6 +73,7 @@ public class BowlingMinigameController : MonoBehaviour
 
     void Start()
     {
+        videoplayer.enabled = false;
         UpdateScoreboard();
     }
 
@@ -85,7 +86,22 @@ public class BowlingMinigameController : MonoBehaviour
     {
         BowlingState.totalScore = GetTotalScore();
 
-        if(BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
+        videoplayer.clip = null;
+        videoplayer.frame = 0;
+
+        if (IsStrike(BowlingState.currentRound))
+        {
+            videoplayer.clip = strike_clip;
+            videoplayer.Prepare();
+        }
+
+        if (IsSpare(BowlingState.currentRound))
+        {
+            videoplayer.clip = spare_clip;
+            videoplayer.Prepare();
+        }
+
+        if (BowlingState.currentRoundHalf == 1 || IsStrike(BowlingState.currentRound))
         {
             BowlingState.currentRound++;
             BowlingState.currentRoundHalf = 0;
@@ -96,8 +112,29 @@ public class BowlingMinigameController : MonoBehaviour
             BowlingState.currentRoundHalf = 1;
         }
 
+        if (videoplayer.clip)
+        {
+            StartCoroutine(PlayVideoAndProceed());
+        }
+
+        // Execute commands after the video has started and played
         pins.Reset(BowlingState.currentRoundHalf);
         UpdateScoreboard();
+    }
+
+    IEnumerator PlayVideoAndProceed()
+    {
+
+        videoplayer.enabled = true;
+        videoplayer.Play();
+
+        while (videoplayer.isPlaying)
+        {
+            yield return null;
+        }
+
+        videoplayer.Stop();
+        videoplayer.enabled = false;
     }
 
     public short GetCurrentRoundHalf()

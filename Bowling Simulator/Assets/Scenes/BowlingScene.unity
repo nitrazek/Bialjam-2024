@@ -2023,7 +2023,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &416144872
+--- !u!328 &454501603
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454501602}
+  m_Enabled: 0
+  m_VideoClip: {fileID: 32900000, guid: 00ed1e6728a889e4989eeda0304dbba2, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 866591913}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 5
+  m_DataSource: 0
+  m_TimeUpdateMode: 1
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 0
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 0
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &454501604
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2972,10 +3006,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboardText: {fileID: 1994851848}
   pins: {fileID: 467610628}
-  videoplayer: {fileID: 0}
-  strike_clip: {fileID: 0}
-  spare_clip: {fileID: 0}
-  eyes_clip: {fileID: 0}
+  videoplayer: {fileID: 454501603}
+  strike_clip: {fileID: 32900000, guid: 63f5bcadbebd4d941bf2c68dfc57aa32, type: 3}
+  spare_clip: {fileID: 32900000, guid: 8a45b5e6b96040a4b8f2fe86443c163e, type: 3}
+  eyes_clip: {fileID: 32900000, guid: 00ed1e6728a889e4989eeda0304dbba2, type: 3}
 --- !u!4 &605942891
 Transform:
   m_ObjectHideFlags: 0
@@ -8332,7 +8366,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1994851847}
-  - {fileID: 1417449344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13351,6 +13384,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 467610629}
   - {fileID: 1092597884}
+  - {fileID: 454501604}
   - {fileID: 8790539010013032795}
   - {fileID: 169767946}
   - {fileID: 866591914}
