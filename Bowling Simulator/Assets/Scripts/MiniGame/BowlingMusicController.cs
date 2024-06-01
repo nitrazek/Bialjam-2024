@@ -10,6 +10,11 @@ public class BowlingMusicController : MonoBehaviour
     [SerializeField] private AudioClip screamSound;
     [SerializeField] private AudioClip[] barkSounds;
 
+    private void Start()
+    {
+            source.GetComponent<AudioReverbFilter>().reverbPreset = AudioReverbPreset.Hangar;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +23,11 @@ public class BowlingMusicController : MonoBehaviour
         {
             source.PlayOneShot(screamSound);
         }
-        if(currentStage >= StoryStages.Round5 && lastStoryStage != currentStage)
+        if (currentStage == StoryStages.Round3 && lastStoryStage != currentStage)
+        {
+            source.GetComponent<AudioReverbFilter>().reverbPreset = AudioReverbPreset.Psychotic;
+        }
+        if (currentStage >= StoryStages.Round5 && lastStoryStage != currentStage)
         {
             StartCoroutine(PlayRandomBarking());
         }
