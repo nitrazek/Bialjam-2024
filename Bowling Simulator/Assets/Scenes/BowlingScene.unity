@@ -581,7 +581,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 416144872}
   - {fileID: 1931500458}
   - {fileID: 2040207714}
   - {fileID: 888393337}
@@ -603,6 +602,7 @@ Transform:
   - {fileID: 670833866}
   - {fileID: 28301542}
   - {fileID: 336172817}
+  - {fileID: 454501604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &98843031
@@ -2011,7 +2011,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 416144872}
+  - component: {fileID: 454501604}
   - component: {fileID: 416144876}
   - component: {fileID: 416144875}
   - component: {fileID: 416144874}
@@ -2263,6 +2263,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420105176}
   m_Mesh: {fileID: -5495902117074765545, guid: 3e3c02d61eac8a946bd52dc8f0308e3f, type: 3}
+--- !u!4 &454501604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416144871}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 1.43, y: -1.95, z: 8.12}
+  m_LocalScale: {x: 75.00004, y: 75.00003, z: 75}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 84144329}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
 --- !u!1 &460699351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,7 +3021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreboardText: {fileID: 1994851848}
   pins: {fileID: 467610628}
-  videoplayer: {fileID: 454501603}
+  videoplayer: {fileID: 1403678022}
   strike_clip: {fileID: 32900000, guid: 63f5bcadbebd4d941bf2c68dfc57aa32, type: 3}
   spare_clip: {fileID: 32900000, guid: 8a45b5e6b96040a4b8f2fe86443c163e, type: 3}
   eyes_clip: {fileID: 32900000, guid: 00ed1e6728a889e4989eeda0304dbba2, type: 3}
@@ -8122,6 +8137,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1403678021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1403678023}
+  - component: {fileID: 1403678022}
+  m_Layer: 0
+  m_Name: Video Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &1403678022
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403678021}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 0}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 866591913}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 4
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 0
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 0
+  m_Looping: 0
+  m_WaitForFirstFrame: 0
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &1403678023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403678021}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -110.13, y: 1.6999998, z: 45671.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404955685
 GameObject:
   m_ObjectHideFlags: 0
@@ -8366,6 +8449,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1994851847}
+  - {fileID: 1417449344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13384,7 +13468,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 467610629}
   - {fileID: 1092597884}
-  - {fileID: 454501604}
   - {fileID: 8790539010013032795}
   - {fileID: 169767946}
   - {fileID: 866591914}
@@ -13408,6 +13491,7 @@ SceneRoots:
   - {fileID: 1101884170}
   - {fileID: 922931286}
   - {fileID: 270212294}
+  - {fileID: 1403678023}
   - {fileID: 1410475185}
   - {fileID: 1827983001}
   - {fileID: 2090988289}
