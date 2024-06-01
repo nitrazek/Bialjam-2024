@@ -159,7 +159,7 @@ public class Story : MonoBehaviour
         for (int i = 0; i < icons.transform.childCount; i++)
         {
             Button icon = icons.transform.GetChild(i).GetComponent<Button>();
-            if (icon.name == "GameButton") continue;
+            if (icon.name == "GameButton" || icon.name == "TrashButton") continue;
 
             icon.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
@@ -214,6 +214,10 @@ public class Story : MonoBehaviour
             {
                 icon.transform.localPosition = new Vector2(0, 0);
                 continue;
+            }
+            if (icon.name == "TrashButton")
+            {
+                icon.transform.localPosition = new Vector2(800, 250);
             }
 
             icon.gameObject.SetActive(false);
