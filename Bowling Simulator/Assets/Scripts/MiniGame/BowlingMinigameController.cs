@@ -77,6 +77,14 @@ public class BowlingMinigameController : MonoBehaviour
         UpdateScoreboard();
     }
 
+    void Update()
+    {
+        if(GameState.StoryStage == StoryStages.Round1)
+        {
+            BowlingState.totalScore = 0;
+        }
+    }
+
     public void OnPinKnockedOver()
     {
         BowlingState.rounds[BowlingState.currentRound][BowlingState.currentRoundHalf]++;
