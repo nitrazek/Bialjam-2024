@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 1493650896}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &3980610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6259,6 +6260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 1193123427}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &1405502277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7338,6 +7340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 1891839738}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &1687540292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7703,6 +7706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 549185004}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &1770434225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8170,6 +8174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 915091070}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &1901770268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8574,6 +8579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1138549508}
   windowToOpen: {fileID: 665930126}
+  sceneFrame: {fileID: 1942793953}
 --- !u!114 &1936006556
 MonoBehaviour:
   m_ObjectHideFlags: 0
