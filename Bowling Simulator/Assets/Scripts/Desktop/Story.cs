@@ -42,7 +42,9 @@ public class Story : MonoBehaviour
         windowCloseSound.clip = windowCloseClip;
         messageSound = gameObject.AddComponent<AudioSource>();
         messageSound.clip = messageClip;
-        if (GameState.StoryStage >= StoryStages.Round6)
+        if (GameState.StoryStage == StoryStages.FinalScene)
+            HideIcons(all: true);
+        else if (GameState.StoryStage >= StoryStages.Round6)
             HideIcons();
 
         switch(GameState.StoryStage)
@@ -236,17 +238,17 @@ public class Story : MonoBehaviour
         yield return StartCoroutine(PulseButton());
     }
 
-    private void HideIcons()
+    private void HideIcons(bool all = false)
     {
         for (int i = 0; i < icons.transform.childCount; i++)
         {
             Button icon = icons.transform.GetChild(i).GetComponent<Button>();
-            if (icon.name == "GameButton")
+            if (!all && icon.name == "GameButton")
             {
                 icon.transform.localPosition = new Vector2(0, 0);
                 continue;
             }
-            else if (icon.name == "TrashButton")
+            else if (!all && icon.name == "TrashButton")
             {
                 icon.transform.localPosition = new Vector2(800, 250);
                 continue;

@@ -299,10 +299,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1493650896}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1493650902}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2131,6 +2131,7 @@ GameObject:
   - component: {fileID: 549185008}
   - component: {fileID: 549185007}
   - component: {fileID: 549185006}
+  - component: {fileID: 549185010}
   m_Layer: 5
   m_Name: FilesButton2Window
   m_TagString: Untagged
@@ -2238,6 +2239,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549185004}
   m_CullTransparentMesh: 1
+--- !u!114 &549185010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549185004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &624150631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2385,6 +2398,7 @@ GameObject:
   - component: {fileID: 665930129}
   - component: {fileID: 665930128}
   - component: {fileID: 665930127}
+  - component: {fileID: 665930132}
   m_Layer: 5
   m_Name: BialjamButtonWindow
   m_TagString: Untagged
@@ -2492,6 +2506,18 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &665930132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665930126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &687192314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3629,6 +3655,7 @@ GameObject:
   - component: {fileID: 915091074}
   - component: {fileID: 915091073}
   - component: {fileID: 915091072}
+  - component: {fileID: 915091076}
   m_Layer: 5
   m_Name: FilesButton1Window
   m_TagString: Untagged
@@ -3736,6 +3763,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915091070}
   m_CullTransparentMesh: 1
+--- !u!114 &915091076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915091070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915842543
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,6 +5043,7 @@ GameObject:
   - component: {fileID: 1193123430}
   - component: {fileID: 1193123429}
   - component: {fileID: 1193123428}
+  - component: {fileID: 1193123433}
   m_Layer: 5
   m_Name: FilesButton3Window
   m_TagString: Untagged
@@ -5111,6 +5151,18 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1193123433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193123427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217456726
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,10 +5981,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1193123427}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1193123433}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6212,6 +6264,7 @@ GameObject:
   - component: {fileID: 1493650900}
   - component: {fileID: 1493650899}
   - component: {fileID: 1493650898}
+  - component: {fileID: 1493650902}
   m_Layer: 5
   m_Name: DocumentButtonWindow
   m_TagString: Untagged
@@ -6319,6 +6372,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493650896}
   m_CullTransparentMesh: 1
+--- !u!114 &1493650902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493650896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500146534
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,10 +7058,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1891839738}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1891839744}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7324,10 +7389,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 549185004}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 549185010}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7475,6 +7540,7 @@ GameObject:
   - component: {fileID: 1891839741}
   - component: {fileID: 1891839740}
   - component: {fileID: 1891839739}
+  - component: {fileID: 1891839744}
   m_Layer: 5
   m_Name: TrashButtonWindow
   m_TagString: Untagged
@@ -7582,6 +7648,18 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 1000, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1891839744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891839738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d279f995edebae41acf6e3cdc2190d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1901770259
 GameObject:
   m_ObjectHideFlags: 0
@@ -7745,10 +7823,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915091070}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 915091076}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8117,10 +8195,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 665930126}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 665930132}
+        m_TargetAssemblyTypeName: OpenWindow, Assembly-CSharp
+        m_MethodName: Window_Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8397,6 +8475,8 @@ GameObject:
   - component: {fileID: 1980228500}
   - component: {fileID: 1980228502}
   - component: {fileID: 1980228501}
+  - component: {fileID: 1980228504}
+  - component: {fileID: 1980228503}
   m_Layer: 5
   m_Name: MyChat
   m_TagString: Untagged
@@ -8464,6 +8544,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980228499}
   m_CullTransparentMesh: 1
+--- !u!114 &1980228503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980228499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2338998a5c71f4d9c185aa495f67ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1138549508}
+--- !u!114 &1980228504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980228499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 5
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1980228503}
+          m_TargetAssemblyTypeName: MoveWindow, Assembly-CSharp
+          m_MethodName: Window_Drag
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2021234236
 GameObject:
   m_ObjectHideFlags: 0
