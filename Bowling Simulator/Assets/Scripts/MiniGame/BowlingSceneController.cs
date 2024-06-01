@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BowlingSceneController : MonoBehaviour
 {
-    private StoryStages currentStage;
     private int obstaclesIndex = -1;
     public bool isTutorialShown = true;
     public bool hasBallCollided = false;
@@ -33,6 +32,7 @@ public class BowlingSceneController : MonoBehaviour
         if (currentStage == StoryStages.Round7) obstaclesIndex = 4;
         if (currentStage == StoryStages.Round8) obstaclesIndex = 5;
         if (currentStage == StoryStages.Round9) obstaclesIndex = 6;
+        if (currentStage == StoryStages.Round10) obstaclesIndex = 7;
 
         for (int i = 0; i < obstaclesRounds.Length; i++)
         {
@@ -44,7 +44,7 @@ public class BowlingSceneController : MonoBehaviour
     public void OnThrowEnd()
     {
         hasBallCollided = false;
-        ball.Reset();
-        head.Reset();
+        if (GameState.StoryStage >= StoryStages.Round9) head.ResetPosition();
+        else ball.ResetPosition();
     }
 }

@@ -23,11 +23,16 @@ public class BallController : MonoBehaviour
     [SerializeField] private TutorialController tutorial;
     [SerializeField] private GameObject directionArrow;
 
-    void Start()
+    void Awake()
     {
         checkpoint = transform.position;
         initialRotation = transform.rotation;
-        Reset();
+        ResetPosition();
+
+        if (gameObject.name == "head")
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -61,8 +66,9 @@ public class BallController : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public void ResetPosition()
     {
+        Debug.Log(gameObject.name + " " + transform.position);
         transform.position = checkpoint;
         transform.rotation = initialRotation;
         rb.velocity = Vector3.zero;
