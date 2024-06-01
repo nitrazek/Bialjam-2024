@@ -33,5 +33,6 @@ public enum StoryStages
     LastDesktopAnomaly,
     Round8,
     Round9,
-    Round10, 
+    Round10,
+    FinalScene
 }
