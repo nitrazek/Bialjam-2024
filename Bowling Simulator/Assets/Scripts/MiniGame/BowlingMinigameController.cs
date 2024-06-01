@@ -6,6 +6,8 @@ using UnityEngine.Video;
 
 public class BowlingMinigameController : MonoBehaviour
 {
+    private bool didNewGameStarted;
+
     [SerializeField] private TextMeshProUGUI scoreboardText;
     [SerializeField] private PinResetter pins;
     [SerializeField] private VideoPlayer videoplayer;
@@ -79,9 +81,15 @@ public class BowlingMinigameController : MonoBehaviour
 
     void Update()
     {
-        if(GameState.StoryStage == StoryStages.Round1)
+        if(!didNewGameStarted && GameState.StoryStage == StoryStages.Round1)
         {
-            BowlingState.totalScore = 0;
+            didNewGameStarted = true;
+            BowlingState.ResetState();
+            UpdateScoreboard();
+        }
+        else if(GameState.StoryStage != StoryStages.Round1)
+        {
+            didNewGameStarted = false;
         }
     }
 
@@ -93,6 +101,7 @@ public class BowlingMinigameController : MonoBehaviour
     public void OnThrowEnd()
     {
         BowlingState.totalScore = GetTotalScore();
+        Debug.Log("Totalo wyniko: " + BowlingState.totalScore);
 
         if (IsStrike(BowlingState.currentRound))
         {
