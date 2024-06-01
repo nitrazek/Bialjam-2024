@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PinSwitcher : MonoBehaviour
 {
-    private StoryStages lastStoryStage;
-
     [SerializeField] GameObject pins;
     [SerializeField] GameObject dawgPins;
 
     void Update()
     {
-        StoryStages currentStage = GameState.StoryStage;
-        if (currentStage == StoryStages.Round5 && currentStage != lastStoryStage)
+        if (GameState.StoryStage >= StoryStages.Round5)
         {
-            lastStoryStage = GameState.StoryStage;
             pins.SetActive(false);
             dawgPins.SetActive(true);
+            return;
         }
+        pins.SetActive(true);
+        dawgPins.SetActive(false);
     }
 }
