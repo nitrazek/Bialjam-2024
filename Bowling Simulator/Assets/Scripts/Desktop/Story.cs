@@ -31,24 +31,35 @@ public class Story : MonoBehaviour
 
     void Start()
     {
-        //SceneManager.LoadScene("BowlingScene", LoadSceneMode.Additive);
-        //return;
         windowOpenSound = gameObject.AddComponent<AudioSource>();
         windowOpenSound.clip = windowOpenClip;
         windowCloseSound = gameObject.AddComponent<AudioSource>();
         windowCloseSound.clip = windowCloseClip;
         messageSound = gameObject.AddComponent<AudioSource>();
         messageSound.clip = messageClip;
-        if (GameState.StoryStage == StoryStages.DesktopWelcome)
-            StartCoroutine(PlayBegginingStory());
-        else if (GameState.StoryStage == StoryStages.DesktopAnomaly)
-            StartCoroutine(PlayFirstAnomaly());
-        else if (GameState.StoryStage == StoryStages.RightsAnomaly)
-            StartCoroutine(PlayRightsAnomaly());
-        else if (GameState.StoryStage == StoryStages.RightsAnomalyForced)
-            StartCoroutine(PlayRightsAnomalyForced());
-        else if (GameState.StoryStage == StoryStages.Round7)
-            StartOnlyWindow();
+        if (GameState.StoryStage >= StoryStages.Round6)
+            HideIcons();
+
+        switch(GameState.StoryStage)
+        {
+            case StoryStages.DesktopWelcome:
+                StartCoroutine(PlayBegginingStory());
+                break;
+            case StoryStages.DesktopAnomaly:
+                StartCoroutine(PlayFirstAnomaly());
+                break;
+            case StoryStages.RightsAnomaly:
+                StartCoroutine(PlayRightsAnomaly());
+                break;
+            case StoryStages.RightsAnomalyForced:
+                StartCoroutine(PlayRightsAnomalyForced());
+                break;
+            case StoryStages.Round7:
+                StartOnlyWindow();
+                break;
+            default:
+                break;
+        }
     }
 
     private IEnumerator PlayBegginingStory()
@@ -140,7 +151,6 @@ public class Story : MonoBehaviour
         for (int i = 0; i < icons.transform.childCount; i++)
         {
             Button icon = icons.transform.GetChild(i).GetComponent<Button>();
-            Debug.Log(icon);
             if (icon.name == "GameButton") continue;
 
             icon.gameObject.SetActive(false);
@@ -185,6 +195,21 @@ public class Story : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameState.NextStage();
         yield return StartCoroutine(PulseButton());
+    }
+
+    private void HideIcons()
+    {
+        for (int i = 0; i < icons.transform.childCount; i++)
+        {
+            Button icon = icons.transform.GetChild(i).GetComponent<Button>();
+            if (icon.name == "GameButton")
+            {
+                icon.transform.localPosition = new Vector2(-800, 250);
+                continue;
+            }
+
+            icon.gameObject.SetActive(false);
+        }
     }
 
     private void ChangePositionOfIcons()
