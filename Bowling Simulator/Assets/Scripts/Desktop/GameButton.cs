@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameButton : MoveButton
 {
-    public RawImage sceneFrame;
     public void Button_Click()
     {
         if (GameState.UiBlocked) return;
