@@ -139,7 +139,9 @@ public class Story : MonoBehaviour
         windowOpenSound.Play();
         myChatWindow.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        AudioSource keyboardSound = myChatWindow.GetComponent<AudioSource>();
+        keyboardSound.Play();
+        yield return new WaitForSeconds(3f);
         messageSound.Play();
         myChatBubble_1.gameObject.SetActive(true);
 
@@ -151,6 +153,7 @@ public class Story : MonoBehaviour
         yield return new WaitForSeconds(3f);
         messageSound.Play();
         myChatBubble_3.gameObject.SetActive(true);
+        keyboardSound.Stop();
 
         yield return new WaitForSeconds(3f);
         GameState.NextStage();
@@ -175,11 +178,6 @@ public class Story : MonoBehaviour
     {
         GameState.NextStage();
         SceneManager.LoadScene("BowlingScene");
-    }
-
-    public void StartOnlySmallWindow()
-    {
-        GameState.NextStage();
     }
 
     public void DownloadGame()

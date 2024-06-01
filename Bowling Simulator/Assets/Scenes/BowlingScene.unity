@@ -14591,6 +14591,9 @@ GameObject:
   - component: {fileID: 1816567356}
   - component: {fileID: 1816567355}
   - component: {fileID: 1816567357}
+  - component: {fileID: 1816567358}
+  - component: {fileID: 1816567359}
+  - component: {fileID: 1816567360}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -14726,6 +14729,48 @@ MonoBehaviour:
   barkSounds:
   - {fileID: 8300000, guid: adc9441065910d94bbe71d01a6f1ccf3, type: 3}
   - {fileID: 8300000, guid: dd4ff023f05ab6742b8e7c99e71dbab8, type: 3}
+--- !u!165 &1816567358
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816567353}
+  m_Enabled: 1
+  m_CutoffFrequency: 600
+  m_HighpassResonanceQ: 1
+--- !u!164 &1816567359
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816567353}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -10000
+  m_RoomHF: -10000
+  m_DecayTime: 1
+  m_DecayHFRatio: 1
+  m_ReflectionsLevel: -2602
+  m_ReverbLevel: 200
+  m_ReverbDelay: 0.011
+  m_Diffusion: 0
+  m_Density: 0
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 0
+--- !u!170 &1816567360
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816567353}
+  m_Enabled: 1
+  m_DistortionLevel: 0.5
 --- !u!1 &1827982999
 GameObject:
   m_ObjectHideFlags: 0
