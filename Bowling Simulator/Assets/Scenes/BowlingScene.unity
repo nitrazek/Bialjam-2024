@@ -14757,6 +14757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1816567355}
   crash_sound: {fileID: 8300000, guid: f2558fb31bf353f4698d0714347ecad4, type: 3}
+  fighting_sound: {fileID: 8300000, guid: 10442b41e890a5342a7f58781ecff73d, type: 3}
+  punch_sound: {fileID: 8300000, guid: a6fd0cec033a5bc45a1f4443b838cc44, type: 3}
   ballCamera: {fileID: 866591911}
 --- !u!4 &1827983001
 Transform:

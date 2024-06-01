@@ -7,6 +7,8 @@ public class CrashGameController : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip crash_sound;
+    public AudioClip fighting_sound;
+    public AudioClip punch_sound;
     private bool isCoroutineRunning = false;
 
     [SerializeField] private BallCamera ballCamera;
@@ -18,10 +20,13 @@ public class CrashGameController : MonoBehaviour
           || GameState.StoryStage == StoryStages.RightsAnomaly
           || GameState.StoryStage == StoryStages.RightsAnomalyForced
           || GameState.StoryStage == StoryStages.TransferToBigScreen
-          || GameState.StoryStage == StoryStages.LastDesktopAnomaly
-          || GameState.StoryStage == StoryStages.FinalScene))
+          || GameState.StoryStage == StoryStages.LastDesktopAnomaly))
         {
             StartCoroutine(PlayCrashSoundAndLoadScene());
+        }
+        else if(!isCoroutineRunning && GameState.StoryStage == StoryStages.FinalScene)
+        {
+            StartCoroutine(PlayFightingSoundAndLoadScene());
         }
     }
 
@@ -34,6 +39,28 @@ public class CrashGameController : MonoBehaviour
         ballCamera.OnFreeze();
 
         // Wait until the crash sound finishes playing
+        yield return new WaitWhile(() => audioSource.isPlaying);
+
+        ballCamera.OnStopFreeze();
+        ballCamera.TurnOffTargetTexture();
+
+        // Load the new scene
+        SceneManager.LoadScene("DesktopScene");
+        isCoroutineRunning = false;
+    }
+
+    IEnumerator PlayFightingSoundAndLoadScene()
+    {
+        isCoroutineRunning = true;
+        
+        audioSource.Stop();
+        ballCamera.OnFreeze();
+        yield return new WaitForSeconds(1f);
+
+        audioSource.PlayOneShot(fighting_sound);
+        // Wait until the crash sound finishes playing
+        yield return new WaitWhile(() => audioSource.isPlaying);
+        audioSource.PlayOneShot(punch_sound);
         yield return new WaitWhile(() => audioSource.isPlaying);
 
         ballCamera.OnStopFreeze();

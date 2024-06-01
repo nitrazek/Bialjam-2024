@@ -98,6 +98,12 @@ public class BowlingMinigameController : MonoBehaviour
         BowlingState.rounds[BowlingState.currentRound][BowlingState.currentRoundHalf]++;
     }
 
+    private IEnumerator PlayFightingSounds()
+    {
+        yield return new WaitForSeconds(0.15f);
+        yield return null;
+    }
+
     public void OnThrowEnd()
     {
         BowlingState.totalScore = GetTotalScore();
